@@ -1,0 +1,3623 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "offendingAttestationId",
+          "type": "string"
+        }
+      ],
+      "name": "AttestationAlreadyRevoked",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "existingAttestationId",
+          "type": "string"
+        }
+      ],
+      "name": "AttestationExists",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "offendingAttestationId",
+          "type": "string"
+        },
+        {
+          "internalType": "uint64",
+          "name": "maxDuration",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint64",
+          "name": "inputDuration",
+          "type": "uint64"
+        }
+      ],
+      "name": "AttestationInvalidDuration",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "schemaId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "offendingAttestationId",
+          "type": "string"
+        }
+      ],
+      "name": "AttestationIrrevocable",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "nonexistentAttestationId",
+          "type": "string"
+        }
+      ],
+      "name": "AttestationNonexistent",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "existingSchemaId",
+          "type": "string"
+        }
+      ],
+      "name": "SchemaExists",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SchemaIdInvalid",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "nonexistentSchemaId",
+          "type": "string"
+        }
+      ],
+      "name": "SchemaNonexistent",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "attestationId",
+          "type": "string"
+        }
+      ],
+      "name": "AttestationMade",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "attestationId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "AttestationRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "attestationId",
+          "type": "string"
+        }
+      ],
+      "name": "OffchainAttestationMade",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "attestationId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "OffchainAttestationRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "schemaId",
+          "type": "string"
+        }
+      ],
+      "name": "SchemaRegistered",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "schemaId",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "linkedAttestationId",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "attester",
+              "type": "address"
+            },
+            {
+              "internalType": "uint64",
+              "name": "validUntil",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bool",
+              "name": "revoked",
+              "type": "bool"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipients",
+              "type": "address[]"
+            }
+          ],
+          "internalType": "struct Attestation[]",
+          "name": "attestations",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "resolverFeesETH",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "attest",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "schemaId",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "linkedAttestationId",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "attester",
+              "type": "address"
+            },
+            {
+              "internalType": "uint64",
+              "name": "validUntil",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bool",
+              "name": "revoked",
+              "type": "bool"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipients",
+              "type": "address[]"
+            }
+          ],
+          "internalType": "struct Attestation[]",
+          "name": "attestations",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "contract IERC20[]",
+          "name": "resolverFeesERC20Tokens",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "resolverFeesERC20Amount",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "attest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "schemaId",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "linkedAttestationId",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "attester",
+              "type": "address"
+            },
+            {
+              "internalType": "uint64",
+              "name": "validUntil",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bool",
+              "name": "revoked",
+              "type": "bool"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipients",
+              "type": "address[]"
+            }
+          ],
+          "internalType": "struct Attestation[]",
+          "name": "attestations",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "attest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        }
+      ],
+      "name": "attestOffchain",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "attestationId",
+          "type": "string"
+        }
+      ],
+      "name": "attestationRegistry",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "schemaId",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "linkedAttestationId",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "attester",
+              "type": "address"
+            },
+            {
+              "internalType": "uint64",
+              "name": "validUntil",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bool",
+              "name": "revoked",
+              "type": "bool"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipients",
+              "type": "address[]"
+            }
+          ],
+          "internalType": "struct Attestation",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "attestationId",
+          "type": "string"
+        }
+      ],
+      "name": "offchainAttestationRegistry",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "schemaIds",
+          "type": "string[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum DataLocation",
+              "name": "dataLocation",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint64",
+              "name": "maxValidFor",
+              "type": "uint64"
+            },
+            {
+              "internalType": "contract ISAPResolver",
+              "name": "resolver",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "schema",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct Schema[]",
+          "name": "schemas",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "register",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "reasons",
+          "type": "string[]"
+        },
+        {
+          "internalType": "contract IERC20[]",
+          "name": "resolverFeesERC20Tokens",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "resolverFeesERC20Amount",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "revoke",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "reasons",
+          "type": "string[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "resolverFeesETH",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "revoke",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "reasons",
+          "type": "string[]"
+        }
+      ],
+      "name": "revoke",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string[]",
+          "name": "attestationIds",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "reasons",
+          "type": "string[]"
+        }
+      ],
+      "name": "revokeOffchain",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "schemaId",
+          "type": "string"
+        }
+      ],
+      "name": "schemaRegistry",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum DataLocation",
+              "name": "dataLocation",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint64",
+              "name": "maxValidFor",
+              "type": "uint64"
+            },
+            {
+              "internalType": "contract ISAPResolver",
+              "name": "resolver",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "schema",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct Schema",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "version",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "attest(string[],(string,string,address,uint64,bool,address[])[])": "bfd2fd42",
+    "attest(string[],(string,string,address,uint64,bool,address[])[],address[],uint256[])": "8d4d8fd9",
+    "attest(string[],(string,string,address,uint64,bool,address[])[],uint256[])": "2e28a37b",
+    "attestOffchain(string[])": "31876b22",
+    "attestationRegistry(string)": "b88a6701",
+    "offchainAttestationRegistry(string)": "775257ff",
+    "register(string[],(bool,uint8,uint64,address,string)[])": "dfb059a8",
+    "revoke(string[],string[])": "c1649a77",
+    "revoke(string[],string[],address[],uint256[])": "2714d808",
+    "revoke(string[],string[],uint256[])": "a82cd020",
+    "revokeOffchain(string[],string[])": "d6769450",
+    "schemaRegistry(string)": "20642801",
+    "version()": "54fd4d50"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"offendingAttestationId\",\"type\":\"string\"}],\"name\":\"AttestationAlreadyRevoked\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"existingAttestationId\",\"type\":\"string\"}],\"name\":\"AttestationExists\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"offendingAttestationId\",\"type\":\"string\"},{\"internalType\":\"uint64\",\"name\":\"maxDuration\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"inputDuration\",\"type\":\"uint64\"}],\"name\":\"AttestationInvalidDuration\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"schemaId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"offendingAttestationId\",\"type\":\"string\"}],\"name\":\"AttestationIrrevocable\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"nonexistentAttestationId\",\"type\":\"string\"}],\"name\":\"AttestationNonexistent\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"existingSchemaId\",\"type\":\"string\"}],\"name\":\"SchemaExists\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SchemaIdInvalid\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"nonexistentSchemaId\",\"type\":\"string\"}],\"name\":\"SchemaNonexistent\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"AttestationMade\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"AttestationRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationMade\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"OffchainAttestationRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"schemaId\",\"type\":\"string\"}],\"name\":\"SchemaRegistered\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"schemaId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"linkedAttestationId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesETH\",\"type\":\"uint256[]\"}],\"name\":\"attest\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"schemaId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"linkedAttestationId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"},{\"internalType\":\"contract IERC20[]\",\"name\":\"resolverFeesERC20Tokens\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256[]\"}],\"name\":\"attest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"schemaId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"linkedAttestationId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"}],\"name\":\"attest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"}],\"name\":\"attestOffchain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"attestationRegistry\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"schemaId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"linkedAttestationId\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"}],\"internalType\":\"struct Attestation\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"offchainAttestationRegistry\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"schemaIds\",\"type\":\"string[]\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISAPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema[]\",\"name\":\"schemas\",\"type\":\"tuple[]\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"},{\"internalType\":\"contract IERC20[]\",\"name\":\"resolverFeesERC20Tokens\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256[]\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesETH\",\"type\":\"uint256[]\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"}],\"name\":\"revokeOffchain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"schemaId\",\"type\":\"string\"}],\"name\":\"schemaRegistry\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISAPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Jack Xu @ EthSign\",\"kind\":\"dev\",\"methods\":{},\"title\":\"SIGN Attestation Protocol Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISAP.sol\":\"ISAP\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\",\":@openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/\",\":openzeppelin-foundry-upgrades/=lib/openzeppelin-foundry-upgrades/src/\",\":solidity-stringutils/=lib/openzeppelin-foundry-upgrades/lib/solidity-stringutils/\"]},\"sources\":{\"lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c\",\"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq\"]},\"src/interfaces/ISAP.sol\":{\"keccak256\":\"0x006535beb5b2689a19e2a536ae6203eb0ddab4a23102f4ac5a2c93a83bf34604\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://2d393833e8a5d283ba1625ebf381c55dbf936e2124897feafc328c79ff8e2db7\",\"dweb:/ipfs/QmahZNdkgvf94pcYjT8kudfaX8okSwNVKkg226QBQdbuWu\"]},\"src/interfaces/ISAPResolver.sol\":{\"keccak256\":\"0xc0c9a61a3829945b9879ace0949c2bc17b7f7042f07c0b3e7e2ff77a2e490fdd\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://dda1a0b5c7182d26c8b9c5ac7c2b1d256a457e12053ea54e153dce87a524d0ae\",\"dweb:/ipfs/QmTZy5huduHeNawTFhBP29Sc5ZgLe71Sxv4tVrHNuzK5BT\"]},\"src/interfaces/IVersionable.sol\":{\"keccak256\":\"0xc969319ef58742de2e4ea1a98ff2ab53b84d763dd3444f720f4528cf1b353465\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://f8f7abeb2b832bfad77acbe99098143614e07810c24339c3ea343463eb0dfb97\",\"dweb:/ipfs/QmSyyfVEVW5pA5rpteX3Jb8HfHgs2iN8pgD7Wj5b2GTVqo\"]},\"src/models/Attestation.sol\":{\"keccak256\":\"0x2bd42cb2fdad590ecdf5884af64110cf95d826f77707f1fea36a920766255e53\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://ac799fd4bc6b504a83010f435409c9c1c0fdab6ce0b018ad7843c4e585fac1c6\",\"dweb:/ipfs/QmXS342tPBe1Xojc5RnzfYc86MbvW4CFyUFuW4cAcZdTCV\"]},\"src/models/Schema.sol\":{\"keccak256\":\"0xd50a87dbfffc1b7c8daf2b9362c373e6b4b7fae18ab60d67bc1c4ea5f69ec002\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://8c3176c6cdead7acf7391efd9e4b0a014dad5c1b8cbc212ee04ebca41894bd34\",\"dweb:/ipfs/QmZcZkXZykLMwVcRcRZBbMeWLqBJ2THRBqq7vQvasr97nC\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "offendingAttestationId",
+              "type": "string"
+            }
+          ],
+          "type": "error",
+          "name": "AttestationAlreadyRevoked"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "existingAttestationId",
+              "type": "string"
+            }
+          ],
+          "type": "error",
+          "name": "AttestationExists"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "offendingAttestationId",
+              "type": "string"
+            },
+            {
+              "internalType": "uint64",
+              "name": "maxDuration",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "inputDuration",
+              "type": "uint64"
+            }
+          ],
+          "type": "error",
+          "name": "AttestationInvalidDuration"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "schemaId",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "offendingAttestationId",
+              "type": "string"
+            }
+          ],
+          "type": "error",
+          "name": "AttestationIrrevocable"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "nonexistentAttestationId",
+              "type": "string"
+            }
+          ],
+          "type": "error",
+          "name": "AttestationNonexistent"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "existingSchemaId",
+              "type": "string"
+            }
+          ],
+          "type": "error",
+          "name": "SchemaExists"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "SchemaIdInvalid"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "nonexistentSchemaId",
+              "type": "string"
+            }
+          ],
+          "type": "error",
+          "name": "SchemaNonexistent"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "attestationId",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AttestationMade",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "attestationId",
+              "type": "string",
+              "indexed": false
+            },
+            {
+              "internalType": "string",
+              "name": "reason",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AttestationRevoked",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "attestationId",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "OffchainAttestationMade",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "attestationId",
+              "type": "string",
+              "indexed": false
+            },
+            {
+              "internalType": "string",
+              "name": "reason",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "OffchainAttestationRevoked",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "schemaId",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "SchemaRegistered",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "struct Attestation[]",
+              "name": "attestations",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "schemaId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "linkedAttestationId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "attester",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "validUntil",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "revoked",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "recipients",
+                  "type": "address[]"
+                }
+              ]
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "resolverFeesETH",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "attest"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "struct Attestation[]",
+              "name": "attestations",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "schemaId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "linkedAttestationId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "attester",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "validUntil",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "revoked",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "recipients",
+                  "type": "address[]"
+                }
+              ]
+            },
+            {
+              "internalType": "contract IERC20[]",
+              "name": "resolverFeesERC20Tokens",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "resolverFeesERC20Amount",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "attest"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "struct Attestation[]",
+              "name": "attestations",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "schemaId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "linkedAttestationId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "attester",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "validUntil",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "revoked",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "recipients",
+                  "type": "address[]"
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "attest"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "attestOffchain"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "attestationId",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "attestationRegistry",
+          "outputs": [
+            {
+              "internalType": "struct Attestation",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "schemaId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "linkedAttestationId",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "attester",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "validUntil",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "revoked",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "recipients",
+                  "type": "address[]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "attestationId",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "offchainAttestationRegistry",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "schemaIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "struct Schema[]",
+              "name": "schemas",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "bool",
+                  "name": "revocable",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "enum DataLocation",
+                  "name": "dataLocation",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "maxValidFor",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "contract ISAPResolver",
+                  "name": "resolver",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "schema",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "register"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "string[]",
+              "name": "reasons",
+              "type": "string[]"
+            },
+            {
+              "internalType": "contract IERC20[]",
+              "name": "resolverFeesERC20Tokens",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "resolverFeesERC20Amount",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "revoke"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "string[]",
+              "name": "reasons",
+              "type": "string[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "resolverFeesETH",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "revoke"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "string[]",
+              "name": "reasons",
+              "type": "string[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "revoke"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string[]",
+              "name": "attestationIds",
+              "type": "string[]"
+            },
+            {
+              "internalType": "string[]",
+              "name": "reasons",
+              "type": "string[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "revokeOffchain"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "schemaId",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "schemaRegistry",
+          "outputs": [
+            {
+              "internalType": "struct Schema",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "bool",
+                  "name": "revocable",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "enum DataLocation",
+                  "name": "dataLocation",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "maxValidFor",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "contract ISAPResolver",
+                  "name": "resolver",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "schema",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "version",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+        "@openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/",
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+        "forge-std/=lib/forge-std/src/",
+        "openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+        "openzeppelin-contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/",
+        "openzeppelin-foundry-upgrades/=lib/openzeppelin-foundry-upgrades/src/",
+        "solidity-stringutils/=lib/openzeppelin-foundry-upgrades/lib/solidity-stringutils/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/interfaces/ISAP.sol": "ISAP"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+        "urls": [
+          "bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+          "dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+        ],
+        "license": "MIT"
+      },
+      "src/interfaces/ISAP.sol": {
+        "keccak256": "0x006535beb5b2689a19e2a536ae6203eb0ddab4a23102f4ac5a2c93a83bf34604",
+        "urls": [
+          "bzz-raw://2d393833e8a5d283ba1625ebf381c55dbf936e2124897feafc328c79ff8e2db7",
+          "dweb:/ipfs/QmahZNdkgvf94pcYjT8kudfaX8okSwNVKkg226QBQdbuWu"
+        ],
+        "license": "UNLICENSED"
+      },
+      "src/interfaces/ISAPResolver.sol": {
+        "keccak256": "0xc0c9a61a3829945b9879ace0949c2bc17b7f7042f07c0b3e7e2ff77a2e490fdd",
+        "urls": [
+          "bzz-raw://dda1a0b5c7182d26c8b9c5ac7c2b1d256a457e12053ea54e153dce87a524d0ae",
+          "dweb:/ipfs/QmTZy5huduHeNawTFhBP29Sc5ZgLe71Sxv4tVrHNuzK5BT"
+        ],
+        "license": "UNLICENSED"
+      },
+      "src/interfaces/IVersionable.sol": {
+        "keccak256": "0xc969319ef58742de2e4ea1a98ff2ab53b84d763dd3444f720f4528cf1b353465",
+        "urls": [
+          "bzz-raw://f8f7abeb2b832bfad77acbe99098143614e07810c24339c3ea343463eb0dfb97",
+          "dweb:/ipfs/QmSyyfVEVW5pA5rpteX3Jb8HfHgs2iN8pgD7Wj5b2GTVqo"
+        ],
+        "license": "UNLICENSED"
+      },
+      "src/models/Attestation.sol": {
+        "keccak256": "0x2bd42cb2fdad590ecdf5884af64110cf95d826f77707f1fea36a920766255e53",
+        "urls": [
+          "bzz-raw://ac799fd4bc6b504a83010f435409c9c1c0fdab6ce0b018ad7843c4e585fac1c6",
+          "dweb:/ipfs/QmXS342tPBe1Xojc5RnzfYc86MbvW4CFyUFuW4cAcZdTCV"
+        ],
+        "license": "UNLICENSED"
+      },
+      "src/models/Schema.sol": {
+        "keccak256": "0xd50a87dbfffc1b7c8daf2b9362c373e6b4b7fae18ab60d67bc1c4ea5f69ec002",
+        "urls": [
+          "bzz-raw://8c3176c6cdead7acf7391efd9e4b0a014dad5c1b8cbc212ee04ebca41894bd34",
+          "dweb:/ipfs/QmZcZkXZykLMwVcRcRZBbMeWLqBJ2THRBqq7vQvasr97nC"
+        ],
+        "license": "UNLICENSED"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": {}
+  },
+  "ast": {
+    "absolutePath": "src/interfaces/ISAP.sol",
+    "id": 52197,
+    "exportedSymbols": {
+      "Attestation": [52626],
+      "IERC20": [46921],
+      "ISAP": [52196],
+      "ISAPResolver": [52248],
+      "IVersionable": [52257],
+      "Schema": [52646]
+    },
+    "nodeType": "SourceUnit",
+    "src": "39:2789:51",
+    "nodes": [
+      {
+        "id": 51997,
+        "nodeType": "PragmaDirective",
+        "src": "39:24:51",
+        "nodes": [],
+        "literals": ["solidity", "^", "0.8", ".20"]
+      },
+      {
+        "id": 51999,
+        "nodeType": "ImportDirective",
+        "src": "65:60:51",
+        "nodes": [],
+        "absolutePath": "src/interfaces/ISAPResolver.sol",
+        "file": "../interfaces/ISAPResolver.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 52197,
+        "sourceUnit": 52249,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 51998,
+              "name": "ISAPResolver",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 52248,
+              "src": "73:12:51",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 52001,
+        "nodeType": "ImportDirective",
+        "src": "126:48:51",
+        "nodes": [],
+        "absolutePath": "src/interfaces/IVersionable.sol",
+        "file": "./IVersionable.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 52197,
+        "sourceUnit": 52258,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 52000,
+              "name": "IVersionable",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 52257,
+              "src": "134:12:51",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 52003,
+        "nodeType": "ImportDirective",
+        "src": "175:44:51",
+        "nodes": [],
+        "absolutePath": "src/models/Schema.sol",
+        "file": "../models/Schema.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 52197,
+        "sourceUnit": 52647,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 52002,
+              "name": "Schema",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 52646,
+              "src": "183:6:51",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 52005,
+        "nodeType": "ImportDirective",
+        "src": "220:54:51",
+        "nodes": [],
+        "absolutePath": "src/models/Attestation.sol",
+        "file": "../models/Attestation.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 52197,
+        "sourceUnit": 52627,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 52004,
+              "name": "Attestation",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 52626,
+              "src": "228:11:51",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 52007,
+        "nodeType": "ImportDirective",
+        "src": "275:70:51",
+        "nodes": [],
+        "absolutePath": "lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 52197,
+        "sourceUnit": 46922,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 52006,
+              "name": "IERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 46921,
+              "src": "283:6:51",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 52196,
+        "nodeType": "ContractDefinition",
+        "src": "430:2397:51",
+        "nodes": [
+          {
+            "id": 52014,
+            "nodeType": "EventDefinition",
+            "src": "467:40:51",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "baf139b8fc932badaabffe26ea3fdd97bb6a5b97b97ff1bc0be71dc02de091e3",
+            "name": "SchemaRegistered",
+            "nameLocation": "473:16:51",
+            "parameters": {
+              "id": 52013,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52012,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "schemaId",
+                  "nameLocation": "497:8:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52014,
+                  "src": "490:15:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52011,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "490:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "489:17:51"
+            }
+          },
+          {
+            "id": 52018,
+            "nodeType": "EventDefinition",
+            "src": "512:44:51",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "55a6b1cbe58291d8fc12168c6ae77f491f47d5d7f735ac1d1b70f9d04f2fa2ca",
+            "name": "AttestationMade",
+            "nameLocation": "518:15:51",
+            "parameters": {
+              "id": 52017,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52016,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "attestationId",
+                  "nameLocation": "541:13:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52018,
+                  "src": "534:20:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52015,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "534:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "533:22:51"
+            }
+          },
+          {
+            "id": 52024,
+            "nodeType": "EventDefinition",
+            "src": "561:62:51",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "57ee04505e703439278accdee6517a713163bd38bb1d2fbc3faca6a06feb9cf7",
+            "name": "AttestationRevoked",
+            "nameLocation": "567:18:51",
+            "parameters": {
+              "id": 52023,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52020,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "attestationId",
+                  "nameLocation": "593:13:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52024,
+                  "src": "586:20:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52019,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "586:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52022,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "reason",
+                  "nameLocation": "615:6:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52024,
+                  "src": "608:13:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52021,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "608:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "585:37:51"
+            }
+          },
+          {
+            "id": 52028,
+            "nodeType": "EventDefinition",
+            "src": "628:52:51",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "6f0bf119c2fc55752051c1cfde5d145fdd499c7f748df7920409c72319ff6027",
+            "name": "OffchainAttestationMade",
+            "nameLocation": "634:23:51",
+            "parameters": {
+              "id": 52027,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52026,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "attestationId",
+                  "nameLocation": "665:13:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52028,
+                  "src": "658:20:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52025,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "658:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "657:22:51"
+            }
+          },
+          {
+            "id": 52034,
+            "nodeType": "EventDefinition",
+            "src": "685:70:51",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "8cdef7ac4262df432ef960b4d902483c56118d54647a70746d99abc05cb970ba",
+            "name": "OffchainAttestationRevoked",
+            "nameLocation": "691:26:51",
+            "parameters": {
+              "id": 52033,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52030,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "attestationId",
+                  "nameLocation": "725:13:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52034,
+                  "src": "718:20:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52029,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "718:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52032,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "reason",
+                  "nameLocation": "747:6:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52034,
+                  "src": "740:13:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52031,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "740:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "717:37:51"
+            }
+          },
+          {
+            "id": 52036,
+            "nodeType": "ErrorDefinition",
+            "src": "761:24:51",
+            "nodes": [],
+            "errorSelector": "335ece03",
+            "name": "SchemaIdInvalid",
+            "nameLocation": "767:15:51",
+            "parameters": {
+              "id": 52035,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "782:2:51"
+            }
+          },
+          {
+            "id": 52040,
+            "nodeType": "ErrorDefinition",
+            "src": "790:44:51",
+            "nodes": [],
+            "errorSelector": "aee81b55",
+            "name": "SchemaExists",
+            "nameLocation": "796:12:51",
+            "parameters": {
+              "id": 52039,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52038,
+                  "mutability": "mutable",
+                  "name": "existingSchemaId",
+                  "nameLocation": "816:16:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52040,
+                  "src": "809:23:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52037,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "809:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "808:25:51"
+            }
+          },
+          {
+            "id": 52044,
+            "nodeType": "ErrorDefinition",
+            "src": "839:52:51",
+            "nodes": [],
+            "errorSelector": "3ae9c1f3",
+            "name": "SchemaNonexistent",
+            "nameLocation": "845:17:51",
+            "parameters": {
+              "id": 52043,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52042,
+                  "mutability": "mutable",
+                  "name": "nonexistentSchemaId",
+                  "nameLocation": "870:19:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52044,
+                  "src": "863:26:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52041,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "863:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "862:28:51"
+            }
+          },
+          {
+            "id": 52050,
+            "nodeType": "ErrorDefinition",
+            "src": "896:77:51",
+            "nodes": [],
+            "errorSelector": "09dc286d",
+            "name": "AttestationIrrevocable",
+            "nameLocation": "902:22:51",
+            "parameters": {
+              "id": 52049,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52046,
+                  "mutability": "mutable",
+                  "name": "schemaId",
+                  "nameLocation": "932:8:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52050,
+                  "src": "925:15:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52045,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "925:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52048,
+                  "mutability": "mutable",
+                  "name": "offendingAttestationId",
+                  "nameLocation": "949:22:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52050,
+                  "src": "942:29:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52047,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "942:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "924:48:51"
+            }
+          },
+          {
+            "id": 52054,
+            "nodeType": "ErrorDefinition",
+            "src": "978:54:51",
+            "nodes": [],
+            "errorSelector": "06f6b589",
+            "name": "AttestationExists",
+            "nameLocation": "984:17:51",
+            "parameters": {
+              "id": 52053,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52052,
+                  "mutability": "mutable",
+                  "name": "existingAttestationId",
+                  "nameLocation": "1009:21:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52054,
+                  "src": "1002:28:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52051,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1002:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1001:30:51"
+            }
+          },
+          {
+            "id": 52058,
+            "nodeType": "ErrorDefinition",
+            "src": "1037:62:51",
+            "nodes": [],
+            "errorSelector": "ee2ddb68",
+            "name": "AttestationNonexistent",
+            "nameLocation": "1043:22:51",
+            "parameters": {
+              "id": 52057,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52056,
+                  "mutability": "mutable",
+                  "name": "nonexistentAttestationId",
+                  "nameLocation": "1073:24:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52058,
+                  "src": "1066:31:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52055,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1066:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1065:33:51"
+            }
+          },
+          {
+            "id": 52066,
+            "nodeType": "ErrorDefinition",
+            "src": "1104:106:51",
+            "nodes": [],
+            "errorSelector": "7fc40bbf",
+            "name": "AttestationInvalidDuration",
+            "nameLocation": "1110:26:51",
+            "parameters": {
+              "id": 52065,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52060,
+                  "mutability": "mutable",
+                  "name": "offendingAttestationId",
+                  "nameLocation": "1144:22:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52066,
+                  "src": "1137:29:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52059,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1137:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52062,
+                  "mutability": "mutable",
+                  "name": "maxDuration",
+                  "nameLocation": "1175:11:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52066,
+                  "src": "1168:18:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 52061,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1168:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52064,
+                  "mutability": "mutable",
+                  "name": "inputDuration",
+                  "nameLocation": "1195:13:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52066,
+                  "src": "1188:20:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 52063,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1188:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1136:73:51"
+            }
+          },
+          {
+            "id": 52070,
+            "nodeType": "ErrorDefinition",
+            "src": "1215:63:51",
+            "nodes": [],
+            "errorSelector": "259fc3a2",
+            "name": "AttestationAlreadyRevoked",
+            "nameLocation": "1221:25:51",
+            "parameters": {
+              "id": 52069,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52068,
+                  "mutability": "mutable",
+                  "name": "offendingAttestationId",
+                  "nameLocation": "1254:22:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52070,
+                  "src": "1247:29:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52067,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1247:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1246:31:51"
+            }
+          },
+          {
+            "id": 52080,
+            "nodeType": "FunctionDefinition",
+            "src": "1284:83:51",
+            "nodes": [],
+            "functionSelector": "dfb059a8",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "register",
+            "nameLocation": "1293:8:51",
+            "parameters": {
+              "id": 52078,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52073,
+                  "mutability": "mutable",
+                  "name": "schemaIds",
+                  "nameLocation": "1320:9:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52080,
+                  "src": "1302:27:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52071,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1302:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52072,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1302:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52077,
+                  "mutability": "mutable",
+                  "name": "schemas",
+                  "nameLocation": "1349:7:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52080,
+                  "src": "1331:25:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Schema_$52646_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "struct Schema[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52075,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 52074,
+                        "name": "Schema",
+                        "nameLocations": ["1331:6:51"],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 52646,
+                        "src": "1331:6:51"
+                      },
+                      "referencedDeclaration": 52646,
+                      "src": "1331:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Schema_$52646_storage_ptr",
+                        "typeString": "struct Schema"
+                      }
+                    },
+                    "id": 52076,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1331:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Schema_$52646_storage_$dyn_storage_ptr",
+                      "typeString": "struct Schema[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1301:56:51"
+            },
+            "returnParameters": {
+              "id": 52079,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1366:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52090,
+            "nodeType": "FunctionDefinition",
+            "src": "1373:96:51",
+            "nodes": [],
+            "functionSelector": "bfd2fd42",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attest",
+            "nameLocation": "1382:6:51",
+            "parameters": {
+              "id": 52088,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52083,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "1407:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52090,
+                  "src": "1389:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52081,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1389:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52082,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1389:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52087,
+                  "mutability": "mutable",
+                  "name": "attestations",
+                  "nameLocation": "1446:12:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52090,
+                  "src": "1423:35:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Attestation_$52626_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "struct Attestation[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52085,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 52084,
+                        "name": "Attestation",
+                        "nameLocations": ["1423:11:51"],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 52626,
+                        "src": "1423:11:51"
+                      },
+                      "referencedDeclaration": 52626,
+                      "src": "1423:11:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Attestation_$52626_storage_ptr",
+                        "typeString": "struct Attestation"
+                      }
+                    },
+                    "id": 52086,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1423:13:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Attestation_$52626_storage_$dyn_storage_ptr",
+                      "typeString": "struct Attestation[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1388:71:51"
+            },
+            "returnParameters": {
+              "id": 52089,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1468:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52103,
+            "nodeType": "FunctionDefinition",
+            "src": "1475:170:51",
+            "nodes": [],
+            "functionSelector": "2e28a37b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attest",
+            "nameLocation": "1484:6:51",
+            "parameters": {
+              "id": 52101,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52093,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "1518:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52103,
+                  "src": "1500:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52091,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1500:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52092,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1500:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52097,
+                  "mutability": "mutable",
+                  "name": "attestations",
+                  "nameLocation": "1565:12:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52103,
+                  "src": "1542:35:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Attestation_$52626_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "struct Attestation[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52095,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 52094,
+                        "name": "Attestation",
+                        "nameLocations": ["1542:11:51"],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 52626,
+                        "src": "1542:11:51"
+                      },
+                      "referencedDeclaration": 52626,
+                      "src": "1542:11:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Attestation_$52626_storage_ptr",
+                        "typeString": "struct Attestation"
+                      }
+                    },
+                    "id": 52096,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1542:13:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Attestation_$52626_storage_$dyn_storage_ptr",
+                      "typeString": "struct Attestation[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52100,
+                  "mutability": "mutable",
+                  "name": "resolverFeesETH",
+                  "nameLocation": "1606:15:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52103,
+                  "src": "1587:34:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52098,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1587:7:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 52099,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1587:9:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1490:137:51"
+            },
+            "returnParameters": {
+              "id": 52102,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1644:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52120,
+            "nodeType": "FunctionDefinition",
+            "src": "1651:221:51",
+            "nodes": [],
+            "functionSelector": "8d4d8fd9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attest",
+            "nameLocation": "1660:6:51",
+            "parameters": {
+              "id": 52118,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52106,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "1694:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52120,
+                  "src": "1676:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52104,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1676:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52105,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1676:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52110,
+                  "mutability": "mutable",
+                  "name": "attestations",
+                  "nameLocation": "1741:12:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52120,
+                  "src": "1718:35:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Attestation_$52626_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "struct Attestation[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52108,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 52107,
+                        "name": "Attestation",
+                        "nameLocations": ["1718:11:51"],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 52626,
+                        "src": "1718:11:51"
+                      },
+                      "referencedDeclaration": 52626,
+                      "src": "1718:11:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Attestation_$52626_storage_ptr",
+                        "typeString": "struct Attestation"
+                      }
+                    },
+                    "id": 52109,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1718:13:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Attestation_$52626_storage_$dyn_storage_ptr",
+                      "typeString": "struct Attestation[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52114,
+                  "mutability": "mutable",
+                  "name": "resolverFeesERC20Tokens",
+                  "nameLocation": "1781:23:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52120,
+                  "src": "1763:41:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_IERC20_$46921_$dyn_calldata_ptr",
+                    "typeString": "contract IERC20[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52112,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 52111,
+                        "name": "IERC20",
+                        "nameLocations": ["1763:6:51"],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 46921,
+                        "src": "1763:6:51"
+                      },
+                      "referencedDeclaration": 46921,
+                      "src": "1763:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$46921",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "id": 52113,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1763:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_IERC20_$46921_$dyn_storage_ptr",
+                      "typeString": "contract IERC20[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52117,
+                  "mutability": "mutable",
+                  "name": "resolverFeesERC20Amount",
+                  "nameLocation": "1833:23:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52120,
+                  "src": "1814:42:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52115,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1814:7:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 52116,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1814:9:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1666:196:51"
+            },
+            "returnParameters": {
+              "id": 52119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1871:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52126,
+            "nodeType": "FunctionDefinition",
+            "src": "1878:67:51",
+            "nodes": [],
+            "functionSelector": "31876b22",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attestOffchain",
+            "nameLocation": "1887:14:51",
+            "parameters": {
+              "id": 52124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52123,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "1920:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52126,
+                  "src": "1902:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52121,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1902:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52122,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1902:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1901:34:51"
+            },
+            "returnParameters": {
+              "id": 52125,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1944:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52135,
+            "nodeType": "FunctionDefinition",
+            "src": "1951:86:51",
+            "nodes": [],
+            "functionSelector": "c1649a77",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "revoke",
+            "nameLocation": "1960:6:51",
+            "parameters": {
+              "id": 52133,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52129,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "1985:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52135,
+                  "src": "1967:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52127,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1967:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52128,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1967:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52132,
+                  "mutability": "mutable",
+                  "name": "reasons",
+                  "nameLocation": "2019:7:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52135,
+                  "src": "2001:25:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52130,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2001:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52131,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2001:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1966:61:51"
+            },
+            "returnParameters": {
+              "id": 52134,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2036:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52147,
+            "nodeType": "FunctionDefinition",
+            "src": "2043:146:51",
+            "nodes": [],
+            "functionSelector": "a82cd020",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "revoke",
+            "nameLocation": "2052:6:51",
+            "parameters": {
+              "id": 52145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52138,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "2077:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52147,
+                  "src": "2059:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52136,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2059:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52137,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2059:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52141,
+                  "mutability": "mutable",
+                  "name": "reasons",
+                  "nameLocation": "2111:7:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52147,
+                  "src": "2093:25:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52139,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2093:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52140,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2093:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52144,
+                  "mutability": "mutable",
+                  "name": "resolverFeesETH",
+                  "nameLocation": "2139:15:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52147,
+                  "src": "2120:34:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52142,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2120:7:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 52143,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2120:9:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2058:97:51"
+            },
+            "returnParameters": {
+              "id": 52146,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2188:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52163,
+            "nodeType": "FunctionDefinition",
+            "src": "2195:211:51",
+            "nodes": [],
+            "functionSelector": "2714d808",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "revoke",
+            "nameLocation": "2204:6:51",
+            "parameters": {
+              "id": 52161,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52150,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "2238:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52163,
+                  "src": "2220:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52148,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2220:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52149,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2220:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52153,
+                  "mutability": "mutable",
+                  "name": "reasons",
+                  "nameLocation": "2280:7:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52163,
+                  "src": "2262:25:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52151,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2262:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52152,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2262:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52157,
+                  "mutability": "mutable",
+                  "name": "resolverFeesERC20Tokens",
+                  "nameLocation": "2315:23:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52163,
+                  "src": "2297:41:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_IERC20_$46921_$dyn_calldata_ptr",
+                    "typeString": "contract IERC20[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52155,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 52154,
+                        "name": "IERC20",
+                        "nameLocations": ["2297:6:51"],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 46921,
+                        "src": "2297:6:51"
+                      },
+                      "referencedDeclaration": 46921,
+                      "src": "2297:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$46921",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "id": 52156,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2297:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_IERC20_$46921_$dyn_storage_ptr",
+                      "typeString": "contract IERC20[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52160,
+                  "mutability": "mutable",
+                  "name": "resolverFeesERC20Amount",
+                  "nameLocation": "2367:23:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52163,
+                  "src": "2348:42:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52158,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2348:7:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 52159,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2348:9:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2210:186:51"
+            },
+            "returnParameters": {
+              "id": 52162,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2405:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52172,
+            "nodeType": "FunctionDefinition",
+            "src": "2412:94:51",
+            "nodes": [],
+            "functionSelector": "d6769450",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "revokeOffchain",
+            "nameLocation": "2421:14:51",
+            "parameters": {
+              "id": 52170,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52166,
+                  "mutability": "mutable",
+                  "name": "attestationIds",
+                  "nameLocation": "2454:14:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52172,
+                  "src": "2436:32:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52164,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2436:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52165,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2436:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52169,
+                  "mutability": "mutable",
+                  "name": "reasons",
+                  "nameLocation": "2488:7:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52172,
+                  "src": "2470:25:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 52167,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2470:6:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 52168,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2470:8:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2435:61:51"
+            },
+            "returnParameters": {
+              "id": 52171,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2505:0:51"
+            },
+            "scope": 52196,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52180,
+            "nodeType": "FunctionDefinition",
+            "src": "2512:88:51",
+            "nodes": [],
+            "functionSelector": "20642801",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "schemaRegistry",
+            "nameLocation": "2521:14:51",
+            "parameters": {
+              "id": 52175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52174,
+                  "mutability": "mutable",
+                  "name": "schemaId",
+                  "nameLocation": "2552:8:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52180,
+                  "src": "2536:24:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52173,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2536:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2535:26:51"
+            },
+            "returnParameters": {
+              "id": 52179,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52178,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52180,
+                  "src": "2585:13:51",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Schema_$52646_memory_ptr",
+                    "typeString": "struct Schema"
+                  },
+                  "typeName": {
+                    "id": 52177,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 52176,
+                      "name": "Schema",
+                      "nameLocations": ["2585:6:51"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 52646,
+                      "src": "2585:6:51"
+                    },
+                    "referencedDeclaration": 52646,
+                    "src": "2585:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Schema_$52646_storage_ptr",
+                      "typeString": "struct Schema"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2584:15:51"
+            },
+            "scope": 52196,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52188,
+            "nodeType": "FunctionDefinition",
+            "src": "2606:103:51",
+            "nodes": [],
+            "functionSelector": "b88a6701",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attestationRegistry",
+            "nameLocation": "2615:19:51",
+            "parameters": {
+              "id": 52183,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52182,
+                  "mutability": "mutable",
+                  "name": "attestationId",
+                  "nameLocation": "2651:13:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52188,
+                  "src": "2635:29:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52181,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2635:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2634:31:51"
+            },
+            "returnParameters": {
+              "id": 52187,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52186,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52188,
+                  "src": "2689:18:51",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Attestation_$52626_memory_ptr",
+                    "typeString": "struct Attestation"
+                  },
+                  "typeName": {
+                    "id": 52185,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 52184,
+                      "name": "Attestation",
+                      "nameLocations": ["2689:11:51"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 52626,
+                      "src": "2689:11:51"
+                    },
+                    "referencedDeclaration": 52626,
+                    "src": "2689:11:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Attestation_$52626_storage_ptr",
+                      "typeString": "struct Attestation"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2688:20:51"
+            },
+            "scope": 52196,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 52195,
+            "nodeType": "FunctionDefinition",
+            "src": "2715:110:51",
+            "nodes": [],
+            "functionSelector": "775257ff",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "offchainAttestationRegistry",
+            "nameLocation": "2724:27:51",
+            "parameters": {
+              "id": 52191,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52190,
+                  "mutability": "mutable",
+                  "name": "attestationId",
+                  "nameLocation": "2768:13:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52195,
+                  "src": "2752:29:51",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 52189,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2752:6:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2751:31:51"
+            },
+            "returnParameters": {
+              "id": 52194,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52193,
+                  "mutability": "mutable",
+                  "name": "timestamp",
+                  "nameLocation": "2814:9:51",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 52195,
+                  "src": "2806:17:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 52192,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2806:7:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2805:19:51"
+            },
+            "scope": 52196,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 52009,
+              "name": "IVersionable",
+              "nameLocations": ["448:12:51"],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 52257,
+              "src": "448:12:51"
+            },
+            "id": 52010,
+            "nodeType": "InheritanceSpecifier",
+            "src": "448:12:51"
+          }
+        ],
+        "canonicalName": "ISAP",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 52008,
+          "nodeType": "StructuredDocumentation",
+          "src": "347:82:51",
+          "text": " @title SIGN Attestation Protocol Interface\n @author Jack Xu @ EthSign"
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [52196, 52257],
+        "name": "ISAP",
+        "nameLocation": "440:4:51",
+        "scope": 52197,
+        "usedErrors": [52036, 52040, 52044, 52050, 52054, 52058, 52066, 52070],
+        "usedEvents": [52014, 52018, 52024, 52028, 52034]
+      }
+    ],
+    "license": "UNLICENSED"
+  },
+  "id": 51
+}

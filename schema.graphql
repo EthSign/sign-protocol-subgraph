@@ -1,57 +1,37 @@
-type AttestationMade @entity(immutable: true) {
-  id: Bytes!
-  attestationId: String! # string
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+enum DataLocation {
+  ONCHAIN
+  ARWEAVE
 }
 
-type AttestationRevoked @entity(immutable: true) {
-  id: Bytes!
-  attestationId: String! # string
-  reason: String! # string
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Schema @entity(immutable: true) {
+  id: String!
+  registrant: Bytes!
+  revocable: Boolean!
+  dataLocation: DataLocation!
+  maxValidFor: BigInt!
+  resolver: Bytes!
+  schema: String!
+  registerTimestamp: BigInt!
+  numberOfAttestations: Int!
 }
 
-type Initialized @entity(immutable: true) {
-  id: Bytes!
-  version: BigInt! # uint64
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Attestation @entity {
+  id: String!
+  schema: Schema!
+  linkedAttestation: Attestation
+  attester: Bytes!
+  attestTimestamp: BigInt!
+  validUntil: BigInt!
+  recipients: [Bytes!]!
+  revoked: Boolean
+  revokeTimestamp: BigInt
+  revokeReason: String
 }
 
-type OffchainAttestationMade @entity(immutable: true) {
-  id: Bytes!
-  attestationId: String! # string
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type OwnershipTransferred @entity(immutable: true) {
-  id: Bytes!
-  previousOwner: Bytes! # address
-  newOwner: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type SchemaRegistered @entity(immutable: true) {
-  id: Bytes!
-  schemaId: String! # string
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type Upgraded @entity(immutable: true) {
-  id: Bytes!
-  implementation: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type OffchainAttestation @entity {
+  id: String!
+  attestTimestamp: BigInt!
+  revoked: Boolean
+  revokeTimestamp: BigInt
+  revokeReason: String
 }
