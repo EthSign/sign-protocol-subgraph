@@ -21,6 +21,7 @@ type Attestation @entity {
   linkedAttestation: Attestation
   attester: Bytes!
   attestTimestamp: BigInt!
+  data: String!
   validUntil: BigInt!
   recipients: [Bytes!]!
   revoked: Boolean
@@ -34,4 +35,14 @@ type OffchainAttestation @entity {
   revoked: Boolean
   revokeTimestamp: BigInt
   revokeReason: String
+}
+
+type User @entity {
+  id: Bytes!
+  attestations: [Attestation!]!
+  attestationRecipient: [Attestation!]!
+  schemas: [Schema!]!
+  numberOfAttestations: Int!
+  numberOfAttestationRecipient: Int!
+  numberOfSchemas: Int!
 }

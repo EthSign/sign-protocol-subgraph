@@ -1,0 +1,36 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SAP
+    network: {{network}}
+    source:
+      address: "{{address}}"
+      abi: SAP
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AttestationMade
+        - AttestationRevoked
+        - OffchainAttestationMade
+        - OffchainAttestationRevoked
+        - SchemaRegistered
+      abis:
+        - name: SAP
+          file: ./abis/ISAP.json
+      eventHandlers:
+        - event: AttestationMade(string)
+          handler: handleAttestationMade
+        - event: AttestationRevoked(string,string)
+          handler: handleAttestationRevoked
+        - event: OffchainAttestationMade(string)
+          handler: handleOffchainAttestationMade
+        - event: OffchainAttestationRevoked(string,string)
+          handler: handleOffchainAttestationRevoked
+        - event: SchemaRegistered(string)
+          handler: handleSchemaRegistered
+      file: ./src/sap.ts

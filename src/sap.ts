@@ -7,14 +7,42 @@ import {
   SchemaRegistered as SchemaRegisteredEvent,
   SAP,
 } from "../generated/SAP/SAP";
-import { Schema, Attestation, OffchainAttestation } from "../generated/schema";
+import {
+  Schema,
+  Attestation,
+  OffchainAttestation,
+  User,
+} from "../generated/schema";
 
-function addressArrayToBytesArray(addressArray: Address[]): Bytes[] {
+function processAttestationRecipients(
+  addressArray: Address[],
+  attestationId: string
+): Bytes[] {
   let bytesArray: Bytes[] = [];
   for (let i = 0; i < addressArray.length; i++) {
     bytesArray.push(addressArray[i]);
+    addAttestationToUser(addressArray[i], attestationId);
   }
   return bytesArray;
+}
+
+function addAttestationToUser(address: Bytes, attestationId: string): void {
+  let user = User.load(address);
+  if (user === null) {
+    user = new User(address);
+    user.attestations = [];
+    user.schemas = [];
+    user.attestationRecipient = [attestationId];
+    user.numberOfAttestations = 0;
+    user.numberOfSchemas = 0;
+    user.numberOfAttestationRecipient = 1;
+  } else {
+    let attestationRecipient = user.attestationRecipient;
+    attestationRecipient.push(attestationId);
+    user.attestationRecipient = attestationRecipient;
+    user.numberOfAttestationRecipient++;
+  }
+  user.save();
 }
 
 function dataLocationNumberToEnumString(dataLocation: number): string {
@@ -27,18 +55,63 @@ function dataLocationNumberToEnumString(dataLocation: number): string {
   }
 }
 
+function updateUserMetric(
+  address: Bytes,
+  attestation: boolean,
+  id: string
+): void {
+  let user = User.load(address);
+  if (user == null) {
+    user = new User(address);
+    user.attestationRecipient = [];
+    user.numberOfAttestationRecipient = 0;
+    if (attestation) {
+      user.numberOfAttestations = 1;
+      user.numberOfSchemas = 0;
+      user.attestations = [id];
+      user.schemas = [];
+    } else {
+      user.numberOfAttestations = 0;
+      user.numberOfSchemas = 1;
+      user.attestations = [];
+      user.schemas = [id];
+    }
+  } else {
+    if (attestation) {
+      user.numberOfAttestations++;
+      let attestations = user.attestations;
+      attestations.push(id);
+      user.attestations = attestations;
+    } else {
+      user.numberOfSchemas++;
+      let schemas = user.schemas;
+      schemas.push(id);
+      user.schemas = schemas;
+    }
+  }
+  user.save();
+}
+
 export function handleAttestationMade(event: AttestationMadeEvent): void {
   let entity = new Attestation(event.params.attestationId);
-  const attestation = SAP.bind(event.address).attestationRegistry(
+  const attestation = SAP.bind(event.address).getAttestation(
     event.params.attestationId
   );
   entity.schema = attestation.schemaId;
-  entity.linkedAttestation = attestation.linkedAttestationId;
+  if (attestation.linkedAttestationId !== "") {
+    entity.linkedAttestation = attestation.linkedAttestationId;
+  }
   entity.attester = event.transaction.from;
   entity.attestTimestamp = event.block.timestamp;
   entity.validUntil = attestation.validUntil;
-  entity.recipients = addressArrayToBytesArray(attestation.recipients);
+  entity.recipients = processAttestationRecipients(
+    attestation.recipients,
+    event.params.attestationId
+  );
+  entity.data = attestation.data;
   entity.save();
+
+  updateUserMetric(event.transaction.from, true, event.params.attestationId);
 }
 
 export function handleAttestationRevoked(event: AttestationRevokedEvent): void {
@@ -69,7 +142,7 @@ export function handleOffchainAttestationRevoked(
 
 export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   let entity = new Schema(event.params.schemaId);
-  const schema = SAP.bind(event.address).schemaRegistry(event.params.schemaId);
+  const schema = SAP.bind(event.address).getSchema(event.params.schemaId);
   entity.registrant = event.transaction.from;
   entity.revocable = schema.revocable;
   entity.dataLocation = dataLocationNumberToEnumString(schema.dataLocation);
@@ -79,4 +152,6 @@ export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   entity.registerTimestamp = event.block.timestamp;
   entity.numberOfAttestations = 0;
   entity.save();
+
+  updateUserMetric(event.transaction.from, false, event.params.schemaId);
 }

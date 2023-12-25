@@ -4,15 +4,15 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ sap-subgraph",
-    "create-local": "graph create --node http://localhost:8020/ sap-subgraph",
-    "remove-local": "graph remove --node http://localhost:8020/ sap-subgraph",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 sap-subgraph",
+    "prep:mumbai": "mustache config/mumbai.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.58.0",
-    "@graphprotocol/graph-ts": "0.30.0"
+    "@graphprotocol/graph-cli": "0.64.1",
+    "@graphprotocol/graph-ts": "0.32.0",
+    "mustache": "^4.2.0"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }
