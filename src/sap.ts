@@ -101,6 +101,7 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
   if (attestation.linkedAttestationId !== "") {
     entity.linkedAttestation = attestation.linkedAttestationId;
   }
+  entity.tx = event.transaction.hash;
   entity.attester = event.transaction.from;
   entity.attestTimestamp = event.block.timestamp;
   entity.validUntil = attestation.validUntil;
@@ -119,6 +120,7 @@ export function handleAttestationRevoked(event: AttestationRevokedEvent): void {
   entity.revoked = true;
   entity.revokeReason = event.params.reason;
   entity.revokeTimestamp = event.block.timestamp;
+  entity.revokeTx = event.transaction.hash;
   entity.save();
 }
 
@@ -126,6 +128,7 @@ export function handleOffchainAttestationMade(
   event: OffchainAttestationMadeEvent
 ): void {
   let entity = new OffchainAttestation(event.params.attestationId);
+  entity.tx = event.transaction.hash;
   entity.attestTimestamp = event.block.timestamp;
   entity.save();
 }
@@ -137,12 +140,14 @@ export function handleOffchainAttestationRevoked(
   entity.revoked = true;
   entity.revokeTimestamp = event.block.timestamp;
   entity.revokeReason = event.params.reason;
+  entity.revokeTx = event.transaction.hash;
   entity.save();
 }
 
 export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   let entity = new Schema(event.params.schemaId);
   const schema = SAP.bind(event.address).getSchema(event.params.schemaId);
+  entity.tx = event.transaction.hash;
   entity.registrant = event.transaction.from;
   entity.revocable = schema.revocable;
   entity.dataLocation = dataLocationNumberToEnumString(schema.dataLocation);

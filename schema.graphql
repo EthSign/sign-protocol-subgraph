@@ -5,6 +5,7 @@ enum DataLocation {
 
 type Schema @entity(immutable: true) {
   id: String!
+  tx: Bytes!
   registrant: Bytes!
   revocable: Boolean!
   dataLocation: DataLocation!
@@ -17,6 +18,7 @@ type Schema @entity(immutable: true) {
 
 type Attestation @entity {
   id: String!
+  tx: Bytes!
   schema: Schema!
   linkedAttestation: Attestation
   attester: Bytes!
@@ -27,14 +29,17 @@ type Attestation @entity {
   revoked: Boolean
   revokeTimestamp: BigInt
   revokeReason: String
+  revokeTx: Bytes
 }
 
 type OffchainAttestation @entity {
   id: String!
+  tx: Bytes!
   attestTimestamp: BigInt!
   revoked: Boolean
   revokeTimestamp: BigInt
   revokeReason: String
+  revokeTx: Bytes
 }
 
 type User @entity {
