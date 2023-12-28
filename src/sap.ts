@@ -1,4 +1,9 @@
-import { Address, Bytes } from "@graphprotocol/graph-ts";
+import {
+  Address,
+  Bytes,
+  DataSourceContext,
+  log,
+} from "@graphprotocol/graph-ts";
 import {
   AttestationMade as AttestationMadeEvent,
   AttestationRevoked as AttestationRevokedEvent,
@@ -13,6 +18,7 @@ import {
   OffchainAttestation,
   User,
 } from "../generated/schema";
+import { SchemaMetadataIPFS } from "../generated/templates";
 
 function processAttestationRecipients(
   addressArray: Address[],
@@ -50,6 +56,10 @@ function dataLocationNumberToEnumString(dataLocation: number): string {
     return "ONCHAIN";
   } else if (dataLocation == 1) {
     return "ARWEAVE";
+  } else if (dataLocation == 2) {
+    return "IPFS";
+  } else if (dataLocation == 3) {
+    return "CUSTOM";
   } else {
     return "UNSUPPORTED";
   }
@@ -146,6 +156,10 @@ export function handleOffchainAttestationRevoked(
 
 export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   let entity = new Schema(event.params.schemaId);
+  let metadataLocation = dataLocationNumberToEnumString(
+    event.params.metadataDataLocation
+  );
+
   const schema = SAP.bind(event.address).getSchema(event.params.schemaId);
   entity.tx = event.transaction.hash;
   entity.registrant = event.transaction.from;
@@ -156,6 +170,8 @@ export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   entity.schema = schema.schema;
   entity.registerTimestamp = event.block.timestamp;
   entity.numberOfAttestations = 0;
+  entity.metadataLocation = metadataLocation;
+  entity.metadataURI = event.params.metadataUri;
   entity.save();
 
   updateUserMetric(event.transaction.from, false, event.params.schemaId);

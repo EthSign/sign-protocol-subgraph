@@ -31,6 +31,6 @@ dataSources:
           handler: handleOffchainAttestationMade
         - event: OffchainAttestationRevoked(string,string)
           handler: handleOffchainAttestationRevoked
-        - event: SchemaRegistered(string)
+        - event: SchemaRegistered(string,uint8,string)
           handler: handleSchemaRegistered
       file: ./src/sap.ts

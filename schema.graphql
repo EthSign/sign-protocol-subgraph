@@ -1,6 +1,8 @@
 enum DataLocation {
   ONCHAIN
   ARWEAVE
+  IPFS
+  CUSTOM
 }
 
 type Schema @entity(immutable: true) {
@@ -14,6 +16,8 @@ type Schema @entity(immutable: true) {
   schema: String!
   registerTimestamp: BigInt!
   numberOfAttestations: Int!
+  metadataLocation: DataLocation!
+  metadataURI: String
 }
 
 type Attestation @entity {
