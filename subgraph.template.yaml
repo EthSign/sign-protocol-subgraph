@@ -3,11 +3,11 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: SAP
+    name: SP
     network: {{network}}
     source:
       address: "{{address}}"
-      abi: SAP
+      abi: SP
       startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
@@ -20,17 +20,17 @@ dataSources:
         - OffchainAttestationRevoked
         - SchemaRegistered
       abis:
-        - name: SAP
-          file: ./abis/ISAP.json
+        - name: SP
+          file: ./abis/ISP.json
       eventHandlers:
-        - event: AttestationMade(string)
+        - event: AttestationMade(uint256)
           handler: handleAttestationMade
-        - event: AttestationRevoked(string,string)
+        - event: AttestationRevoked(uint256,string)
           handler: handleAttestationRevoked
         - event: OffchainAttestationMade(string)
           handler: handleOffchainAttestationMade
         - event: OffchainAttestationRevoked(string,string)
           handler: handleOffchainAttestationRevoked
-        - event: SchemaRegistered(string,uint8,string)
+        - event: SchemaRegistered(uint256,uint8,string)
           handler: handleSchemaRegistered
-      file: ./src/sap.ts
+      file: ./src/sp.ts
