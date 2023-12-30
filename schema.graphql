@@ -27,7 +27,7 @@ type Attestation @entity {
   linkedAttestation: Attestation
   attester: Bytes!
   attestTimestamp: BigInt!
-  data: String!
+  data: Bytes!
   validUntil: BigInt!
   revoked: Boolean
   revokeTimestamp: BigInt

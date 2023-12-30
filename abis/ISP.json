@@ -243,9 +243,9 @@
               "type": "address[]"
             },
             {
-              "internalType": "string",
+              "internalType": "bytes",
               "name": "data",
-              "type": "string"
+              "type": "bytes"
             }
           ],
           "internalType": "struct Attestation",
@@ -299,9 +299,9 @@
               "type": "address[]"
             },
             {
-              "internalType": "string",
+              "internalType": "bytes",
               "name": "data",
-              "type": "string"
+              "type": "bytes"
             }
           ],
           "internalType": "struct Attestation",
@@ -360,9 +360,9 @@
               "type": "address[]"
             },
             {
-              "internalType": "string",
+              "internalType": "bytes",
               "name": "data",
-              "type": "string"
+              "type": "bytes"
             }
           ],
           "internalType": "struct Attestation",
@@ -426,9 +426,75 @@
               "type": "address[]"
             },
             {
-              "internalType": "string",
+              "internalType": "bytes",
               "name": "data",
-              "type": "string"
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct Attestation[]",
+          "name": "attestations",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "contract IERC20[]",
+          "name": "resolverFeesERC20Tokens",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "resolverFeesERC20Amount",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "attestBatch",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "attestationIds",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "schemaId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "linkedAttestationId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "attester",
+              "type": "address"
+            },
+            {
+              "internalType": "uint64",
+              "name": "validUntil",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bool",
+              "name": "revoked",
+              "type": "bool"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipients",
+              "type": "address[]"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
             }
           ],
           "internalType": "struct Attestation[]",
@@ -487,80 +553,14 @@
               "type": "address[]"
             },
             {
-              "internalType": "string",
+              "internalType": "bytes",
               "name": "data",
-              "type": "string"
+              "type": "bytes"
             }
           ],
           "internalType": "struct Attestation[]",
           "name": "attestations",
           "type": "tuple[]"
-        }
-      ],
-      "name": "attestBatch",
-      "outputs": [
-        {
-          "internalType": "uint256[]",
-          "name": "attestationIds",
-          "type": "uint256[]"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "schemaId",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "linkedAttestationId",
-              "type": "uint256"
-            },
-            {
-              "internalType": "address",
-              "name": "attester",
-              "type": "address"
-            },
-            {
-              "internalType": "uint64",
-              "name": "validUntil",
-              "type": "uint64"
-            },
-            {
-              "internalType": "bool",
-              "name": "revoked",
-              "type": "bool"
-            },
-            {
-              "internalType": "address[]",
-              "name": "recipients",
-              "type": "address[]"
-            },
-            {
-              "internalType": "string",
-              "name": "data",
-              "type": "string"
-            }
-          ],
-          "internalType": "struct Attestation[]",
-          "name": "attestations",
-          "type": "tuple[]"
-        },
-        {
-          "internalType": "contract IERC20[]",
-          "name": "resolverFeesERC20Tokens",
-          "type": "address[]"
-        },
-        {
-          "internalType": "uint256[]",
-          "name": "resolverFeesERC20Amount",
-          "type": "uint256[]"
         }
       ],
       "name": "attestBatch",
@@ -656,9 +656,9 @@
               "type": "address[]"
             },
             {
-              "internalType": "string",
+              "internalType": "bytes",
               "name": "data",
-              "type": "string"
+              "type": "bytes"
             }
           ],
           "internalType": "struct Attestation",
@@ -1072,12 +1072,12 @@
     "linkReferences": {}
   },
   "methodIdentifiers": {
-    "attest((uint256,uint256,address,uint64,bool,address[],string))": "9259165d",
-    "attest((uint256,uint256,address,uint64,bool,address[],string),address,uint256)": "e36f47d0",
-    "attest((uint256,uint256,address,uint64,bool,address[],string),uint256)": "9d32b673",
-    "attestBatch((uint256,uint256,address,uint64,bool,address[],string)[])": "ccbd3912",
-    "attestBatch((uint256,uint256,address,uint64,bool,address[],string)[],address[],uint256[])": "ec56cad3",
-    "attestBatch((uint256,uint256,address,uint64,bool,address[],string)[],uint256[])": "b58afa2e",
+    "attest((uint256,uint256,address,uint64,bool,address[],bytes))": "2cd61b5d",
+    "attest((uint256,uint256,address,uint64,bool,address[],bytes),address,uint256)": "8f803f79",
+    "attest((uint256,uint256,address,uint64,bool,address[],bytes),uint256)": "86184c8d",
+    "attestBatch((uint256,uint256,address,uint64,bool,address[],bytes)[])": "edfaa2ae",
+    "attestBatch((uint256,uint256,address,uint64,bool,address[],bytes)[],address[],uint256[])": "6dea2ad3",
+    "attestBatch((uint256,uint256,address,uint64,bool,address[],bytes)[],uint256[])": "ec86dea7",
     "attestOffchain(string)": "3f9cdc5e",
     "attestOffchainBatch(string[])": "c7360d8a",
     "attestationCounter()": "2c996e03",
@@ -1097,7 +1097,7 @@
     "schemaCounter()": "cb6a3237",
     "version()": "54fd4d50"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offendingAttestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationAlreadyRevoked\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offendingAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"maxDuration\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"inputDuration\",\"type\":\"uint64\"}],\"name\":\"AttestationInvalidDuration\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"offendingAttestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationIrrevocable\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"nonexistentAttestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationNonexistent\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"expected\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"actual\",\"type\":\"address\"}],\"name\":\"AttestationWrongAttester\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"offendingOffchainAttestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationAlreadyRevoked\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"existingOffchainAttestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationExists\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"nonexistentOffchainAttestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationNonexistent\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"nonexistentSchemaId\",\"type\":\"uint256\"}],\"name\":\"SchemaNonexistent\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationMade\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"AttestationRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationMade\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"OffchainAttestationRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"enum DataLocation\",\"name\":\"metadataDataLocation\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"metadataUri\",\"type\":\"string\"}],\"name\":\"SchemaRegistered\",\"type\":\"event\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct Attestation\",\"name\":\"attestation\",\"type\":\"tuple\"}],\"name\":\"attest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct Attestation\",\"name\":\"attestation\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesETH\",\"type\":\"uint256\"}],\"name\":\"attest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct Attestation\",\"name\":\"attestation\",\"type\":\"tuple\"},{\"internalType\":\"contract IERC20\",\"name\":\"resolverFeesERC20Token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256\"}],\"name\":\"attest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesETH\",\"type\":\"uint256[]\"}],\"name\":\"attestBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"}],\"name\":\"attestBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"},{\"internalType\":\"contract IERC20[]\",\"name\":\"resolverFeesERC20Tokens\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256[]\"}],\"name\":\"attestBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"attestOffchain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"}],\"name\":\"attestOffchainBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"attestationCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"name\":\"getAttestation\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct Attestation\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"getOffchainAttestation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"}],\"name\":\"getSchema\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"internalType\":\"struct SchemaMetadata\",\"name\":\"uri\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema\",\"name\":\"schema\",\"type\":\"tuple\"}],\"name\":\"register\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"internalType\":\"struct SchemaMetadata[]\",\"name\":\"uris\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema[]\",\"name\":\"schemas\",\"type\":\"tuple[]\"}],\"name\":\"registerBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"schemaIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesETH\",\"type\":\"uint256\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"},{\"internalType\":\"contract IERC20\",\"name\":\"resolverFeesERC20Token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"}],\"name\":\"revokeBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"},{\"internalType\":\"contract IERC20[]\",\"name\":\"resolverFeesERC20Tokens\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256[]\"}],\"name\":\"revokeBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesETH\",\"type\":\"uint256[]\"}],\"name\":\"revokeBatch\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"revokeOffchain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"}],\"name\":\"revokeOffchainBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"schemaCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Jack Xu @ EthSign\",\"kind\":\"dev\",\"methods\":{},\"title\":\"SIGN Attestation Protocol Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISP.sol\":\"ISP\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\",\":@openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/\",\":openzeppelin-foundry-upgrades/=lib/openzeppelin-foundry-upgrades/src/\",\":solidity-stringutils/=lib/openzeppelin-foundry-upgrades/lib/solidity-stringutils/\"]},\"sources\":{\"lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c\",\"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq\"]},\"src/interfaces/ISP.sol\":{\"keccak256\":\"0x01bb381376c79273b42309545eddd29f620fae85913bd7606300356868bdca47\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://27ba4232197d520d92724acdf6950b489c610ca75b706c65cb8b593c683231e7\",\"dweb:/ipfs/QmPgMawdNZYXh3B9SDNVfyVowWSkZSfCWMLvxd9HbSjVTn\"]},\"src/interfaces/ISPResolver.sol\":{\"keccak256\":\"0x6a5e153099cc9812ec51c36983bfe9349daa3e27db2121e5d9ea447c12ca4642\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://53564f4f0b309d9bf36ed47a7c02ae3045a40702135f1ccc3d021839790a9a23\",\"dweb:/ipfs/QmZkcReCAof6vEoWJnPZgJDdbC4s4ddbAo7KQJaMLtzFMr\"]},\"src/interfaces/IVersionable.sol\":{\"keccak256\":\"0xc969319ef58742de2e4ea1a98ff2ab53b84d763dd3444f720f4528cf1b353465\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://f8f7abeb2b832bfad77acbe99098143614e07810c24339c3ea343463eb0dfb97\",\"dweb:/ipfs/QmSyyfVEVW5pA5rpteX3Jb8HfHgs2iN8pgD7Wj5b2GTVqo\"]},\"src/models/Attestation.sol\":{\"keccak256\":\"0x12413e316140040e81060b7f436cdbb47c2229a48c484ce0bd0a726303677834\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://b45c58e1cc20c1f152d51512fd38c94a2fe1d3784c1bcc07e204524bcd0042a1\",\"dweb:/ipfs/QmdQZJ41oYmiWVV5UHMjbPChABizVGWvAL3rWcDEnnNc7S\"]},\"src/models/OffchainResource.sol\":{\"keccak256\":\"0xdbb008e6b3efe159d026d6bc329727f2603d14870ab01165a87545bffa7bce4a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://aae3487cee47b7a0ff0a3b7c26bdc57083a9c071fbd58780fca236b9d2fe18ea\",\"dweb:/ipfs/QmXQRyeKcLut97bqfrmCsMAu7jjyRf7NdCDziSGfZYPbzx\"]},\"src/models/Schema.sol\":{\"keccak256\":\"0x0198ad270c7d26f8a7d29fd34cf22cf095b0ca1caff632a77815eba404131ab6\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://7aef63254356825c8e2c7df8ae04312b7a8ff30009b35d43da703499a91064d4\",\"dweb:/ipfs/QmS2vN2Yqw3VXxfA92JYNDAvfi4hsYC6csFZAsSVGYyi9w\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offendingAttestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationAlreadyRevoked\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offendingAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"maxDuration\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"inputDuration\",\"type\":\"uint64\"}],\"name\":\"AttestationInvalidDuration\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"offendingAttestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationIrrevocable\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"nonexistentAttestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationNonexistent\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"expected\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"actual\",\"type\":\"address\"}],\"name\":\"AttestationWrongAttester\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"offendingOffchainAttestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationAlreadyRevoked\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"existingOffchainAttestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationExists\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"nonexistentOffchainAttestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationNonexistent\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"nonexistentSchemaId\",\"type\":\"uint256\"}],\"name\":\"SchemaNonexistent\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"name\":\"AttestationMade\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"AttestationRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"OffchainAttestationMade\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"OffchainAttestationRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"enum DataLocation\",\"name\":\"metadataDataLocation\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"metadataUri\",\"type\":\"string\"}],\"name\":\"SchemaRegistered\",\"type\":\"event\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct Attestation\",\"name\":\"attestation\",\"type\":\"tuple\"}],\"name\":\"attest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct Attestation\",\"name\":\"attestation\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesETH\",\"type\":\"uint256\"}],\"name\":\"attest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct Attestation\",\"name\":\"attestation\",\"type\":\"tuple\"},{\"internalType\":\"contract IERC20\",\"name\":\"resolverFeesERC20Token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256\"}],\"name\":\"attest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"},{\"internalType\":\"contract IERC20[]\",\"name\":\"resolverFeesERC20Tokens\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256[]\"}],\"name\":\"attestBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesETH\",\"type\":\"uint256[]\"}],\"name\":\"attestBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct Attestation[]\",\"name\":\"attestations\",\"type\":\"tuple[]\"}],\"name\":\"attestBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"attestOffchain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"}],\"name\":\"attestOffchainBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"attestationCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"}],\"name\":\"getAttestation\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"linkedAttestationId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"attester\",\"type\":\"address\"},{\"internalType\":\"uint64\",\"name\":\"validUntil\",\"type\":\"uint64\"},{\"internalType\":\"bool\",\"name\":\"revoked\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"recipients\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"internalType\":\"struct Attestation\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"}],\"name\":\"getOffchainAttestation\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"}],\"name\":\"getSchema\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"internalType\":\"struct SchemaMetadata\",\"name\":\"uri\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema\",\"name\":\"schema\",\"type\":\"tuple\"}],\"name\":\"register\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"schemaId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"internalType\":\"struct SchemaMetadata[]\",\"name\":\"uris\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"revocable\",\"type\":\"bool\"},{\"internalType\":\"enum DataLocation\",\"name\":\"dataLocation\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"maxValidFor\",\"type\":\"uint64\"},{\"internalType\":\"contract ISPResolver\",\"name\":\"resolver\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"schema\",\"type\":\"string\"}],\"internalType\":\"struct Schema[]\",\"name\":\"schemas\",\"type\":\"tuple[]\"}],\"name\":\"registerBatch\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"schemaIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesETH\",\"type\":\"uint256\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"attestationId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"},{\"internalType\":\"contract IERC20\",\"name\":\"resolverFeesERC20Token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"}],\"name\":\"revokeBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"},{\"internalType\":\"contract IERC20[]\",\"name\":\"resolverFeesERC20Tokens\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesERC20Amount\",\"type\":\"uint256[]\"}],\"name\":\"revokeBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"attestationIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"},{\"internalType\":\"uint256[]\",\"name\":\"resolverFeesETH\",\"type\":\"uint256[]\"}],\"name\":\"revokeBatch\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"attestationId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"revokeOffchain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string[]\",\"name\":\"attestationIds\",\"type\":\"string[]\"},{\"internalType\":\"string[]\",\"name\":\"reasons\",\"type\":\"string[]\"}],\"name\":\"revokeOffchainBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"schemaCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Jack Xu @ EthSign\",\"kind\":\"dev\",\"methods\":{},\"title\":\"SIGN Attestation Protocol Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISP.sol\":\"ISP\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\",\":@openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/\",\":openzeppelin-foundry-upgrades/=lib/openzeppelin-foundry-upgrades/src/\",\":solidity-stringutils/=lib/openzeppelin-foundry-upgrades/lib/solidity-stringutils/\"]},\"sources\":{\"lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c\",\"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq\"]},\"src/interfaces/ISP.sol\":{\"keccak256\":\"0x01bb381376c79273b42309545eddd29f620fae85913bd7606300356868bdca47\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://27ba4232197d520d92724acdf6950b489c610ca75b706c65cb8b593c683231e7\",\"dweb:/ipfs/QmPgMawdNZYXh3B9SDNVfyVowWSkZSfCWMLvxd9HbSjVTn\"]},\"src/interfaces/ISPResolver.sol\":{\"keccak256\":\"0x6a5e153099cc9812ec51c36983bfe9349daa3e27db2121e5d9ea447c12ca4642\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://53564f4f0b309d9bf36ed47a7c02ae3045a40702135f1ccc3d021839790a9a23\",\"dweb:/ipfs/QmZkcReCAof6vEoWJnPZgJDdbC4s4ddbAo7KQJaMLtzFMr\"]},\"src/interfaces/IVersionable.sol\":{\"keccak256\":\"0xc969319ef58742de2e4ea1a98ff2ab53b84d763dd3444f720f4528cf1b353465\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://f8f7abeb2b832bfad77acbe99098143614e07810c24339c3ea343463eb0dfb97\",\"dweb:/ipfs/QmSyyfVEVW5pA5rpteX3Jb8HfHgs2iN8pgD7Wj5b2GTVqo\"]},\"src/models/Attestation.sol\":{\"keccak256\":\"0x9181f9e202570eeba7597f441c4499166cd16f5e7b84efc6520d28ed23ac96c4\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://fa6dddc8494fce17b33474cde73c3490e3219cfc3ff2bedafd94d051d0940932\",\"dweb:/ipfs/QmUHeS6Cd3WAHgtkah5hxnKHfRnYmRj6pGEX1wJ39n1xpX\"]},\"src/models/OffchainResource.sol\":{\"keccak256\":\"0xdbb008e6b3efe159d026d6bc329727f2603d14870ab01165a87545bffa7bce4a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://aae3487cee47b7a0ff0a3b7c26bdc57083a9c071fbd58780fca236b9d2fe18ea\",\"dweb:/ipfs/QmXQRyeKcLut97bqfrmCsMAu7jjyRf7NdCDziSGfZYPbzx\"]},\"src/models/Schema.sol\":{\"keccak256\":\"0x0198ad270c7d26f8a7d29fd34cf22cf095b0ca1caff632a77815eba404131ab6\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://7aef63254356825c8e2c7df8ae04312b7a8ff30009b35d43da703499a91064d4\",\"dweb:/ipfs/QmS2vN2Yqw3VXxfA92JYNDAvfi4hsYC6csFZAsSVGYyi9w\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.20+commit.a1b79de6"
@@ -1351,9 +1351,9 @@
                   "type": "address[]"
                 },
                 {
-                  "internalType": "string",
+                  "internalType": "bytes",
                   "name": "data",
-                  "type": "string"
+                  "type": "bytes"
                 }
               ]
             }
@@ -1407,9 +1407,9 @@
                   "type": "address[]"
                 },
                 {
-                  "internalType": "string",
+                  "internalType": "bytes",
                   "name": "data",
-                  "type": "string"
+                  "type": "bytes"
                 }
               ]
             },
@@ -1468,9 +1468,9 @@
                   "type": "address[]"
                 },
                 {
-                  "internalType": "string",
+                  "internalType": "bytes",
                   "name": "data",
-                  "type": "string"
+                  "type": "bytes"
                 }
               ]
             },
@@ -1534,9 +1534,75 @@
                   "type": "address[]"
                 },
                 {
-                  "internalType": "string",
+                  "internalType": "bytes",
                   "name": "data",
-                  "type": "string"
+                  "type": "bytes"
+                }
+              ]
+            },
+            {
+              "internalType": "contract IERC20[]",
+              "name": "resolverFeesERC20Tokens",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "resolverFeesERC20Amount",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "attestBatch",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "attestationIds",
+              "type": "uint256[]"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct Attestation[]",
+              "name": "attestations",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "schemaId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "linkedAttestationId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "attester",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "validUntil",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "revoked",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "address[]",
+                  "name": "recipients",
+                  "type": "address[]"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "data",
+                  "type": "bytes"
                 }
               ]
             },
@@ -1595,77 +1661,11 @@
                   "type": "address[]"
                 },
                 {
-                  "internalType": "string",
+                  "internalType": "bytes",
                   "name": "data",
-                  "type": "string"
+                  "type": "bytes"
                 }
               ]
-            }
-          ],
-          "stateMutability": "nonpayable",
-          "type": "function",
-          "name": "attestBatch",
-          "outputs": [
-            {
-              "internalType": "uint256[]",
-              "name": "attestationIds",
-              "type": "uint256[]"
-            }
-          ]
-        },
-        {
-          "inputs": [
-            {
-              "internalType": "struct Attestation[]",
-              "name": "attestations",
-              "type": "tuple[]",
-              "components": [
-                {
-                  "internalType": "uint256",
-                  "name": "schemaId",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "linkedAttestationId",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "address",
-                  "name": "attester",
-                  "type": "address"
-                },
-                {
-                  "internalType": "uint64",
-                  "name": "validUntil",
-                  "type": "uint64"
-                },
-                {
-                  "internalType": "bool",
-                  "name": "revoked",
-                  "type": "bool"
-                },
-                {
-                  "internalType": "address[]",
-                  "name": "recipients",
-                  "type": "address[]"
-                },
-                {
-                  "internalType": "string",
-                  "name": "data",
-                  "type": "string"
-                }
-              ]
-            },
-            {
-              "internalType": "contract IERC20[]",
-              "name": "resolverFeesERC20Tokens",
-              "type": "address[]"
-            },
-            {
-              "internalType": "uint256[]",
-              "name": "resolverFeesERC20Amount",
-              "type": "uint256[]"
             }
           ],
           "stateMutability": "nonpayable",
@@ -1764,9 +1764,9 @@
                   "type": "address[]"
                 },
                 {
-                  "internalType": "string",
+                  "internalType": "bytes",
                   "name": "data",
-                  "type": "string"
+                  "type": "bytes"
                 }
               ]
             }
@@ -2225,10 +2225,10 @@
         "license": "UNLICENSED"
       },
       "src/models/Attestation.sol": {
-        "keccak256": "0x12413e316140040e81060b7f436cdbb47c2229a48c484ce0bd0a726303677834",
+        "keccak256": "0x9181f9e202570eeba7597f441c4499166cd16f5e7b84efc6520d28ed23ac96c4",
         "urls": [
-          "bzz-raw://b45c58e1cc20c1f152d51512fd38c94a2fe1d3784c1bcc07e204524bcd0042a1",
-          "dweb:/ipfs/QmdQZJ41oYmiWVV5UHMjbPChABizVGWvAL3rWcDEnnNc7S"
+          "bzz-raw://fa6dddc8494fce17b33474cde73c3490e3219cfc3ff2bedafd94d051d0940932",
+          "dweb:/ipfs/QmUHeS6Cd3WAHgtkah5hxnKHfRnYmRj6pGEX1wJ39n1xpX"
         ],
         "license": "UNLICENSED"
       },
@@ -2257,45 +2257,45 @@
   },
   "ast": {
     "absolutePath": "src/interfaces/ISP.sol",
-    "id": 53172,
+    "id": 53320,
     "exportedSymbols": {
-      "Attestation": [53601],
-      "DataLocation": [53608],
+      "Attestation": [53749],
+      "DataLocation": [53756],
       "IERC20": [46921],
-      "ISP": [53171],
-      "ISPResolver": [53223],
-      "IVersionable": [53232],
-      "Schema": [53633],
-      "SchemaMetadata": [53614]
+      "ISP": [53319],
+      "ISPResolver": [53371],
+      "IVersionable": [53380],
+      "Schema": [53781],
+      "SchemaMetadata": [53762]
     },
     "nodeType": "SourceUnit",
     "src": "39:4404:52",
     "nodes": [
       {
-        "id": 52860,
+        "id": 53008,
         "nodeType": "PragmaDirective",
         "src": "39:24:52",
         "nodes": [],
         "literals": ["solidity", "^", "0.8", ".20"]
       },
       {
-        "id": 52862,
+        "id": 53010,
         "nodeType": "ImportDirective",
         "src": "65:58:52",
         "nodes": [],
         "absolutePath": "src/interfaces/ISPResolver.sol",
         "file": "../interfaces/ISPResolver.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 53172,
-        "sourceUnit": 53224,
+        "scope": 53320,
+        "sourceUnit": 53372,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 52861,
+              "id": 53009,
               "name": "ISPResolver",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 53223,
+              "referencedDeclaration": 53371,
               "src": "73:11:52",
               "typeDescriptions": {}
             },
@@ -2305,23 +2305,23 @@
         "unitAlias": ""
       },
       {
-        "id": 52864,
+        "id": 53012,
         "nodeType": "ImportDirective",
         "src": "124:48:52",
         "nodes": [],
         "absolutePath": "src/interfaces/IVersionable.sol",
         "file": "./IVersionable.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 53172,
-        "sourceUnit": 53233,
+        "scope": 53320,
+        "sourceUnit": 53381,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 52863,
+              "id": 53011,
               "name": "IVersionable",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 53232,
+              "referencedDeclaration": 53380,
               "src": "132:12:52",
               "typeDescriptions": {}
             },
@@ -2331,23 +2331,23 @@
         "unitAlias": ""
       },
       {
-        "id": 52866,
+        "id": 53014,
         "nodeType": "ImportDirective",
         "src": "173:44:52",
         "nodes": [],
         "absolutePath": "src/models/Schema.sol",
         "file": "../models/Schema.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 53172,
-        "sourceUnit": 53634,
+        "scope": 53320,
+        "sourceUnit": 53782,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 52865,
+              "id": 53013,
               "name": "Schema",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 53633,
+              "referencedDeclaration": 53781,
               "src": "181:6:52",
               "typeDescriptions": {}
             },
@@ -2357,23 +2357,23 @@
         "unitAlias": ""
       },
       {
-        "id": 52868,
+        "id": 53016,
         "nodeType": "ImportDirective",
         "src": "218:54:52",
         "nodes": [],
         "absolutePath": "src/models/Attestation.sol",
         "file": "../models/Attestation.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 53172,
-        "sourceUnit": 53602,
+        "scope": 53320,
+        "sourceUnit": 53750,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 52867,
+              "id": 53015,
               "name": "Attestation",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 53601,
+              "referencedDeclaration": 53749,
               "src": "226:11:52",
               "typeDescriptions": {}
             },
@@ -2383,23 +2383,23 @@
         "unitAlias": ""
       },
       {
-        "id": 52871,
+        "id": 53019,
         "nodeType": "ImportDirective",
         "src": "273:76:52",
         "nodes": [],
         "absolutePath": "src/models/OffchainResource.sol",
         "file": "../models/OffchainResource.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 53172,
-        "sourceUnit": 53615,
+        "scope": 53320,
+        "sourceUnit": 53763,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 52869,
+              "id": 53017,
               "name": "DataLocation",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 53608,
+              "referencedDeclaration": 53756,
               "src": "281:12:52",
               "typeDescriptions": {}
             },
@@ -2407,11 +2407,11 @@
           },
           {
             "foreign": {
-              "id": 52870,
+              "id": 53018,
               "name": "SchemaMetadata",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 53614,
+              "referencedDeclaration": 53762,
               "src": "295:14:52",
               "typeDescriptions": {}
             },
@@ -2421,19 +2421,19 @@
         "unitAlias": ""
       },
       {
-        "id": 52873,
+        "id": 53021,
         "nodeType": "ImportDirective",
         "src": "350:70:52",
         "nodes": [],
         "absolutePath": "lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 53172,
+        "scope": 53320,
         "sourceUnit": 46922,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 52872,
+              "id": 53020,
               "name": "IERC20",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
@@ -2447,12 +2447,12 @@
         "unitAlias": ""
       },
       {
-        "id": 53171,
+        "id": 53319,
         "nodeType": "ContractDefinition",
         "src": "505:3937:52",
         "nodes": [
           {
-            "id": 52885,
+            "id": 53033,
             "nodeType": "EventDefinition",
             "src": "541:96:52",
             "nodes": [],
@@ -2461,18 +2461,18 @@
             "name": "SchemaRegistered",
             "nameLocation": "547:16:52",
             "parameters": {
-              "id": 52884,
+              "id": 53032,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52878,
+                  "id": 53026,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "schemaId",
                   "nameLocation": "572:8:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52885,
+                  "scope": 53033,
                   "src": "564:16:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2481,7 +2481,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52877,
+                    "id": 53025,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "564:7:52",
@@ -2494,35 +2494,35 @@
                 },
                 {
                   "constant": false,
-                  "id": 52881,
+                  "id": 53029,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "metadataDataLocation",
                   "nameLocation": "595:20:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52885,
+                  "scope": 53033,
                   "src": "582:33:52",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_DataLocation_$53608",
+                    "typeIdentifier": "t_enum$_DataLocation_$53756",
                     "typeString": "enum DataLocation"
                   },
                   "typeName": {
-                    "id": 52880,
+                    "id": 53028,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 52879,
+                      "id": 53027,
                       "name": "DataLocation",
                       "nameLocations": ["582:12:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53608,
+                      "referencedDeclaration": 53756,
                       "src": "582:12:52"
                     },
-                    "referencedDeclaration": 53608,
+                    "referencedDeclaration": 53756,
                     "src": "582:12:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_DataLocation_$53608",
+                      "typeIdentifier": "t_enum$_DataLocation_$53756",
                       "typeString": "enum DataLocation"
                     }
                   },
@@ -2530,13 +2530,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 52883,
+                  "id": 53031,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "metadataUri",
                   "nameLocation": "624:11:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52885,
+                  "scope": 53033,
                   "src": "617:18:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2545,7 +2545,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52882,
+                    "id": 53030,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "617:6:52",
@@ -2561,7 +2561,7 @@
             }
           },
           {
-            "id": 52889,
+            "id": 53037,
             "nodeType": "EventDefinition",
             "src": "642:45:52",
             "nodes": [],
@@ -2570,18 +2570,18 @@
             "name": "AttestationMade",
             "nameLocation": "648:15:52",
             "parameters": {
-              "id": 52888,
+              "id": 53036,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52887,
+                  "id": 53035,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "672:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52889,
+                  "scope": 53037,
                   "src": "664:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2590,7 +2590,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52886,
+                    "id": 53034,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "664:7:52",
@@ -2606,7 +2606,7 @@
             }
           },
           {
-            "id": 52895,
+            "id": 53043,
             "nodeType": "EventDefinition",
             "src": "692:63:52",
             "nodes": [],
@@ -2615,18 +2615,18 @@
             "name": "AttestationRevoked",
             "nameLocation": "698:18:52",
             "parameters": {
-              "id": 52894,
+              "id": 53042,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52891,
+                  "id": 53039,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "725:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52895,
+                  "scope": 53043,
                   "src": "717:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2635,7 +2635,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52890,
+                    "id": 53038,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "717:7:52",
@@ -2648,13 +2648,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 52893,
+                  "id": 53041,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "reason",
                   "nameLocation": "747:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52895,
+                  "scope": 53043,
                   "src": "740:13:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2663,7 +2663,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52892,
+                    "id": 53040,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "740:6:52",
@@ -2679,7 +2679,7 @@
             }
           },
           {
-            "id": 52899,
+            "id": 53047,
             "nodeType": "EventDefinition",
             "src": "760:52:52",
             "nodes": [],
@@ -2688,18 +2688,18 @@
             "name": "OffchainAttestationMade",
             "nameLocation": "766:23:52",
             "parameters": {
-              "id": 52898,
+              "id": 53046,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52897,
+                  "id": 53045,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "797:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52899,
+                  "scope": 53047,
                   "src": "790:20:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2708,7 +2708,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52896,
+                    "id": 53044,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "790:6:52",
@@ -2724,7 +2724,7 @@
             }
           },
           {
-            "id": 52905,
+            "id": 53053,
             "nodeType": "EventDefinition",
             "src": "817:70:52",
             "nodes": [],
@@ -2733,18 +2733,18 @@
             "name": "OffchainAttestationRevoked",
             "nameLocation": "823:26:52",
             "parameters": {
-              "id": 52904,
+              "id": 53052,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52901,
+                  "id": 53049,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "857:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52905,
+                  "scope": 53053,
                   "src": "850:20:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2753,7 +2753,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52900,
+                    "id": 53048,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "850:6:52",
@@ -2766,13 +2766,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 52903,
+                  "id": 53051,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "reason",
                   "nameLocation": "879:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52905,
+                  "scope": 53053,
                   "src": "872:13:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2781,7 +2781,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52902,
+                    "id": 53050,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "872:6:52",
@@ -2797,7 +2797,7 @@
             }
           },
           {
-            "id": 52909,
+            "id": 53057,
             "nodeType": "ErrorDefinition",
             "src": "893:53:52",
             "nodes": [],
@@ -2805,17 +2805,17 @@
             "name": "SchemaNonexistent",
             "nameLocation": "899:17:52",
             "parameters": {
-              "id": 52908,
+              "id": 53056,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52907,
+                  "id": 53055,
                   "mutability": "mutable",
                   "name": "nonexistentSchemaId",
                   "nameLocation": "925:19:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52909,
+                  "scope": 53057,
                   "src": "917:27:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2824,7 +2824,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52906,
+                    "id": 53054,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "917:7:52",
@@ -2840,7 +2840,7 @@
             }
           },
           {
-            "id": 52915,
+            "id": 53063,
             "nodeType": "ErrorDefinition",
             "src": "951:79:52",
             "nodes": [],
@@ -2848,17 +2848,17 @@
             "name": "AttestationIrrevocable",
             "nameLocation": "957:22:52",
             "parameters": {
-              "id": 52914,
+              "id": 53062,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52911,
+                  "id": 53059,
                   "mutability": "mutable",
                   "name": "schemaId",
                   "nameLocation": "988:8:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52915,
+                  "scope": 53063,
                   "src": "980:16:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2867,7 +2867,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52910,
+                    "id": 53058,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "980:7:52",
@@ -2880,12 +2880,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 52913,
+                  "id": 53061,
                   "mutability": "mutable",
                   "name": "offendingAttestationId",
                   "nameLocation": "1006:22:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52915,
+                  "scope": 53063,
                   "src": "998:30:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2894,7 +2894,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52912,
+                    "id": 53060,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "998:7:52",
@@ -2910,7 +2910,7 @@
             }
           },
           {
-            "id": 52919,
+            "id": 53067,
             "nodeType": "ErrorDefinition",
             "src": "1035:63:52",
             "nodes": [],
@@ -2918,17 +2918,17 @@
             "name": "AttestationNonexistent",
             "nameLocation": "1041:22:52",
             "parameters": {
-              "id": 52918,
+              "id": 53066,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52917,
+                  "id": 53065,
                   "mutability": "mutable",
                   "name": "nonexistentAttestationId",
                   "nameLocation": "1072:24:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52919,
+                  "scope": 53067,
                   "src": "1064:32:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2937,7 +2937,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52916,
+                    "id": 53064,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1064:7:52",
@@ -2953,7 +2953,7 @@
             }
           },
           {
-            "id": 52927,
+            "id": 53075,
             "nodeType": "ErrorDefinition",
             "src": "1103:107:52",
             "nodes": [],
@@ -2961,17 +2961,17 @@
             "name": "AttestationInvalidDuration",
             "nameLocation": "1109:26:52",
             "parameters": {
-              "id": 52926,
+              "id": 53074,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52921,
+                  "id": 53069,
                   "mutability": "mutable",
                   "name": "offendingAttestationId",
                   "nameLocation": "1144:22:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52927,
+                  "scope": 53075,
                   "src": "1136:30:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2980,7 +2980,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52920,
+                    "id": 53068,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1136:7:52",
@@ -2993,12 +2993,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 52923,
+                  "id": 53071,
                   "mutability": "mutable",
                   "name": "maxDuration",
                   "nameLocation": "1175:11:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52927,
+                  "scope": 53075,
                   "src": "1168:18:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3007,7 +3007,7 @@
                     "typeString": "uint64"
                   },
                   "typeName": {
-                    "id": 52922,
+                    "id": 53070,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
                     "src": "1168:6:52",
@@ -3020,12 +3020,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 52925,
+                  "id": 53073,
                   "mutability": "mutable",
                   "name": "inputDuration",
                   "nameLocation": "1195:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52927,
+                  "scope": 53075,
                   "src": "1188:20:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3034,7 +3034,7 @@
                     "typeString": "uint64"
                   },
                   "typeName": {
-                    "id": 52924,
+                    "id": 53072,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
                     "src": "1188:6:52",
@@ -3050,7 +3050,7 @@
             }
           },
           {
-            "id": 52931,
+            "id": 53079,
             "nodeType": "ErrorDefinition",
             "src": "1215:64:52",
             "nodes": [],
@@ -3058,17 +3058,17 @@
             "name": "AttestationAlreadyRevoked",
             "nameLocation": "1221:25:52",
             "parameters": {
-              "id": 52930,
+              "id": 53078,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52929,
+                  "id": 53077,
                   "mutability": "mutable",
                   "name": "offendingAttestationId",
                   "nameLocation": "1255:22:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52931,
+                  "scope": 53079,
                   "src": "1247:30:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3077,7 +3077,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52928,
+                    "id": 53076,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1247:7:52",
@@ -3093,7 +3093,7 @@
             }
           },
           {
-            "id": 52937,
+            "id": 53085,
             "nodeType": "ErrorDefinition",
             "src": "1284:65:52",
             "nodes": [],
@@ -3101,17 +3101,17 @@
             "name": "AttestationWrongAttester",
             "nameLocation": "1290:24:52",
             "parameters": {
-              "id": 52936,
+              "id": 53084,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52933,
+                  "id": 53081,
                   "mutability": "mutable",
                   "name": "expected",
                   "nameLocation": "1323:8:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52937,
+                  "scope": 53085,
                   "src": "1315:16:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3120,7 +3120,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 52932,
+                    "id": 53080,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1315:7:52",
@@ -3134,12 +3134,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 52935,
+                  "id": 53083,
                   "mutability": "mutable",
                   "name": "actual",
                   "nameLocation": "1341:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52937,
+                  "scope": 53085,
                   "src": "1333:14:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3148,7 +3148,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 52934,
+                    "id": 53082,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1333:7:52",
@@ -3165,7 +3165,7 @@
             }
           },
           {
-            "id": 52941,
+            "id": 53089,
             "nodeType": "ErrorDefinition",
             "src": "1354:70:52",
             "nodes": [],
@@ -3173,17 +3173,17 @@
             "name": "OffchainAttestationExists",
             "nameLocation": "1360:25:52",
             "parameters": {
-              "id": 52940,
+              "id": 53088,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52939,
+                  "id": 53087,
                   "mutability": "mutable",
                   "name": "existingOffchainAttestationId",
                   "nameLocation": "1393:29:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52941,
+                  "scope": 53089,
                   "src": "1386:36:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3192,7 +3192,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52938,
+                    "id": 53086,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1386:6:52",
@@ -3208,7 +3208,7 @@
             }
           },
           {
-            "id": 52945,
+            "id": 53093,
             "nodeType": "ErrorDefinition",
             "src": "1429:78:52",
             "nodes": [],
@@ -3216,17 +3216,17 @@
             "name": "OffchainAttestationNonexistent",
             "nameLocation": "1435:30:52",
             "parameters": {
-              "id": 52944,
+              "id": 53092,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52943,
+                  "id": 53091,
                   "mutability": "mutable",
                   "name": "nonexistentOffchainAttestationId",
                   "nameLocation": "1473:32:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52945,
+                  "scope": 53093,
                   "src": "1466:39:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3235,7 +3235,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52942,
+                    "id": 53090,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1466:6:52",
@@ -3251,7 +3251,7 @@
             }
           },
           {
-            "id": 52949,
+            "id": 53097,
             "nodeType": "ErrorDefinition",
             "src": "1512:79:52",
             "nodes": [],
@@ -3259,17 +3259,17 @@
             "name": "OffchainAttestationAlreadyRevoked",
             "nameLocation": "1518:33:52",
             "parameters": {
-              "id": 52948,
+              "id": 53096,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52947,
+                  "id": 53095,
                   "mutability": "mutable",
                   "name": "offendingOffchainAttestationId",
                   "nameLocation": "1559:30:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52949,
+                  "scope": 53097,
                   "src": "1552:37:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3278,7 +3278,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52946,
+                    "id": 53094,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1552:6:52",
@@ -3294,7 +3294,7 @@
             }
           },
           {
-            "id": 52960,
+            "id": 53108,
             "nodeType": "FunctionDefinition",
             "src": "1597:107:52",
             "nodes": [],
@@ -3305,39 +3305,39 @@
             "name": "register",
             "nameLocation": "1606:8:52",
             "parameters": {
-              "id": 52956,
+              "id": 53104,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52952,
+                  "id": 53100,
                   "mutability": "mutable",
                   "name": "uri",
                   "nameLocation": "1639:3:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52960,
+                  "scope": 53108,
                   "src": "1615:27:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_SchemaMetadata_$53614_calldata_ptr",
+                    "typeIdentifier": "t_struct$_SchemaMetadata_$53762_calldata_ptr",
                     "typeString": "struct SchemaMetadata"
                   },
                   "typeName": {
-                    "id": 52951,
+                    "id": 53099,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 52950,
+                      "id": 53098,
                       "name": "SchemaMetadata",
                       "nameLocations": ["1615:14:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53614,
+                      "referencedDeclaration": 53762,
                       "src": "1615:14:52"
                     },
-                    "referencedDeclaration": 53614,
+                    "referencedDeclaration": 53762,
                     "src": "1615:14:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_SchemaMetadata_$53614_storage_ptr",
+                      "typeIdentifier": "t_struct$_SchemaMetadata_$53762_storage_ptr",
                       "typeString": "struct SchemaMetadata"
                     }
                   },
@@ -3345,34 +3345,34 @@
                 },
                 {
                   "constant": false,
-                  "id": 52955,
+                  "id": 53103,
                   "mutability": "mutable",
                   "name": "schema",
                   "nameLocation": "1660:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52960,
+                  "scope": 53108,
                   "src": "1644:22:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Schema_$53633_calldata_ptr",
+                    "typeIdentifier": "t_struct$_Schema_$53781_calldata_ptr",
                     "typeString": "struct Schema"
                   },
                   "typeName": {
-                    "id": 52954,
+                    "id": 53102,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 52953,
+                      "id": 53101,
                       "name": "Schema",
                       "nameLocations": ["1644:6:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53633,
+                      "referencedDeclaration": 53781,
                       "src": "1644:6:52"
                     },
-                    "referencedDeclaration": 53633,
+                    "referencedDeclaration": 53781,
                     "src": "1644:6:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Schema_$53633_storage_ptr",
+                      "typeIdentifier": "t_struct$_Schema_$53781_storage_ptr",
                       "typeString": "struct Schema"
                     }
                   },
@@ -3382,17 +3382,17 @@
               "src": "1614:53:52"
             },
             "returnParameters": {
-              "id": 52959,
+              "id": 53107,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52958,
+                  "id": 53106,
                   "mutability": "mutable",
                   "name": "schemaId",
                   "nameLocation": "1694:8:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52960,
+                  "scope": 53108,
                   "src": "1686:16:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3401,7 +3401,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52957,
+                    "id": 53105,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1686:7:52",
@@ -3415,56 +3415,56 @@
               ],
               "src": "1685:18:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 52968,
+            "id": 53116,
             "nodeType": "FunctionDefinition",
             "src": "1710:91:52",
             "nodes": [],
-            "functionSelector": "9259165d",
+            "functionSelector": "2cd61b5d",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "attest",
             "nameLocation": "1719:6:52",
             "parameters": {
-              "id": 52964,
+              "id": 53112,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52963,
+                  "id": 53111,
                   "mutability": "mutable",
                   "name": "attestation",
                   "nameLocation": "1747:11:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52968,
+                  "scope": 53116,
                   "src": "1726:32:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Attestation_$53601_calldata_ptr",
+                    "typeIdentifier": "t_struct$_Attestation_$53749_calldata_ptr",
                     "typeString": "struct Attestation"
                   },
                   "typeName": {
-                    "id": 52962,
+                    "id": 53110,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 52961,
+                      "id": 53109,
                       "name": "Attestation",
                       "nameLocations": ["1726:11:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53601,
+                      "referencedDeclaration": 53749,
                       "src": "1726:11:52"
                     },
-                    "referencedDeclaration": 53601,
+                    "referencedDeclaration": 53749,
                     "src": "1726:11:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Attestation_$53601_storage_ptr",
+                      "typeIdentifier": "t_struct$_Attestation_$53749_storage_ptr",
                       "typeString": "struct Attestation"
                     }
                   },
@@ -3474,17 +3474,17 @@
               "src": "1725:34:52"
             },
             "returnParameters": {
-              "id": 52967,
+              "id": 53115,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52966,
+                  "id": 53114,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "1786:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52968,
+                  "scope": 53116,
                   "src": "1778:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3493,7 +3493,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52965,
+                    "id": 53113,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1778:7:52",
@@ -3507,56 +3507,56 @@
               ],
               "src": "1777:23:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 52978,
+            "id": 53126,
             "nodeType": "FunctionDefinition",
             "src": "1807:148:52",
             "nodes": [],
-            "functionSelector": "9d32b673",
+            "functionSelector": "86184c8d",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "attest",
             "nameLocation": "1816:6:52",
             "parameters": {
-              "id": 52974,
+              "id": 53122,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52971,
+                  "id": 53119,
                   "mutability": "mutable",
                   "name": "attestation",
                   "nameLocation": "1844:11:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52978,
+                  "scope": 53126,
                   "src": "1823:32:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Attestation_$53601_calldata_ptr",
+                    "typeIdentifier": "t_struct$_Attestation_$53749_calldata_ptr",
                     "typeString": "struct Attestation"
                   },
                   "typeName": {
-                    "id": 52970,
+                    "id": 53118,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 52969,
+                      "id": 53117,
                       "name": "Attestation",
                       "nameLocations": ["1823:11:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53601,
+                      "referencedDeclaration": 53749,
                       "src": "1823:11:52"
                     },
-                    "referencedDeclaration": 53601,
+                    "referencedDeclaration": 53749,
                     "src": "1823:11:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Attestation_$53601_storage_ptr",
+                      "typeIdentifier": "t_struct$_Attestation_$53749_storage_ptr",
                       "typeString": "struct Attestation"
                     }
                   },
@@ -3564,12 +3564,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 52973,
+                  "id": 53121,
                   "mutability": "mutable",
                   "name": "resolverFeesETH",
                   "nameLocation": "1865:15:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52978,
+                  "scope": 53126,
                   "src": "1857:23:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3578,7 +3578,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52972,
+                    "id": 53120,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1857:7:52",
@@ -3593,17 +3593,17 @@
               "src": "1822:59:52"
             },
             "returnParameters": {
-              "id": 52977,
+              "id": 53125,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52976,
+                  "id": 53124,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "1940:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52978,
+                  "scope": 53126,
                   "src": "1932:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3612,7 +3612,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52975,
+                    "id": 53123,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1932:7:52",
@@ -3626,56 +3626,56 @@
               ],
               "src": "1931:23:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 52991,
+            "id": 53139,
             "nodeType": "FunctionDefinition",
             "src": "1961:171:52",
             "nodes": [],
-            "functionSelector": "e36f47d0",
+            "functionSelector": "8f803f79",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "attest",
             "nameLocation": "1970:6:52",
             "parameters": {
-              "id": 52987,
+              "id": 53135,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52981,
+                  "id": 53129,
                   "mutability": "mutable",
                   "name": "attestation",
                   "nameLocation": "1998:11:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52991,
+                  "scope": 53139,
                   "src": "1977:32:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Attestation_$53601_calldata_ptr",
+                    "typeIdentifier": "t_struct$_Attestation_$53749_calldata_ptr",
                     "typeString": "struct Attestation"
                   },
                   "typeName": {
-                    "id": 52980,
+                    "id": 53128,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 52979,
+                      "id": 53127,
                       "name": "Attestation",
                       "nameLocations": ["1977:11:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53601,
+                      "referencedDeclaration": 53749,
                       "src": "1977:11:52"
                     },
-                    "referencedDeclaration": 53601,
+                    "referencedDeclaration": 53749,
                     "src": "1977:11:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Attestation_$53601_storage_ptr",
+                      "typeIdentifier": "t_struct$_Attestation_$53749_storage_ptr",
                       "typeString": "struct Attestation"
                     }
                   },
@@ -3683,12 +3683,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 52984,
+                  "id": 53132,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Token",
                   "nameLocation": "2018:22:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52991,
+                  "scope": 53139,
                   "src": "2011:29:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3697,10 +3697,10 @@
                     "typeString": "contract IERC20"
                   },
                   "typeName": {
-                    "id": 52983,
+                    "id": 53131,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 52982,
+                      "id": 53130,
                       "name": "IERC20",
                       "nameLocations": ["2011:6:52"],
                       "nodeType": "IdentifierPath",
@@ -3718,12 +3718,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 52986,
+                  "id": 53134,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Amount",
                   "nameLocation": "2050:23:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52991,
+                  "scope": 53139,
                   "src": "2042:31:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3732,7 +3732,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52985,
+                    "id": 53133,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2042:7:52",
@@ -3747,17 +3747,17 @@
               "src": "1976:98:52"
             },
             "returnParameters": {
-              "id": 52990,
+              "id": 53138,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52989,
+                  "id": 53137,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "2117:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52991,
+                  "scope": 53139,
                   "src": "2109:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3766,7 +3766,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52988,
+                    "id": 53136,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2109:7:52",
@@ -3780,13 +3780,13 @@
               ],
               "src": "2108:23:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 52996,
+            "id": 53144,
             "nodeType": "FunctionDefinition",
             "src": "2138:64:52",
             "nodes": [],
@@ -3797,17 +3797,17 @@
             "name": "attestOffchain",
             "nameLocation": "2147:14:52",
             "parameters": {
-              "id": 52994,
+              "id": 53142,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52993,
+                  "id": 53141,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "2178:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 52996,
+                  "scope": 53144,
                   "src": "2162:29:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -3816,7 +3816,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52992,
+                    "id": 53140,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2162:6:52",
@@ -3831,18 +3831,18 @@
               "src": "2161:31:52"
             },
             "returnParameters": {
-              "id": 52995,
+              "id": 53143,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2201:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53003,
+            "id": 53151,
             "nodeType": "FunctionDefinition",
             "src": "2208:72:52",
             "nodes": [],
@@ -3853,17 +3853,17 @@
             "name": "revoke",
             "nameLocation": "2217:6:52",
             "parameters": {
-              "id": 53001,
+              "id": 53149,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 52998,
+                  "id": 53146,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "2232:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53003,
+                  "scope": 53151,
                   "src": "2224:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3872,7 +3872,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 52997,
+                    "id": 53145,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2224:7:52",
@@ -3885,12 +3885,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53000,
+                  "id": 53148,
                   "mutability": "mutable",
                   "name": "reason",
                   "nameLocation": "2263:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53003,
+                  "scope": 53151,
                   "src": "2247:22:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -3899,7 +3899,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 52999,
+                    "id": 53147,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2247:6:52",
@@ -3914,18 +3914,18 @@
               "src": "2223:47:52"
             },
             "returnParameters": {
-              "id": 53002,
+              "id": 53150,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2279:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53012,
+            "id": 53160,
             "nodeType": "FunctionDefinition",
             "src": "2286:105:52",
             "nodes": [],
@@ -3936,17 +3936,17 @@
             "name": "revoke",
             "nameLocation": "2295:6:52",
             "parameters": {
-              "id": 53010,
+              "id": 53158,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53005,
+                  "id": 53153,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "2310:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53012,
+                  "scope": 53160,
                   "src": "2302:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3955,7 +3955,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53004,
+                    "id": 53152,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2302:7:52",
@@ -3968,12 +3968,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53007,
+                  "id": 53155,
                   "mutability": "mutable",
                   "name": "reason",
                   "nameLocation": "2341:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53012,
+                  "scope": 53160,
                   "src": "2325:22:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -3982,7 +3982,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 53006,
+                    "id": 53154,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2325:6:52",
@@ -3995,12 +3995,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53009,
+                  "id": 53157,
                   "mutability": "mutable",
                   "name": "resolverFeesETH",
                   "nameLocation": "2357:15:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53012,
+                  "scope": 53160,
                   "src": "2349:23:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4009,7 +4009,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53008,
+                    "id": 53156,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2349:7:52",
@@ -4024,18 +4024,18 @@
               "src": "2301:72:52"
             },
             "returnParameters": {
-              "id": 53011,
+              "id": 53159,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2390:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53024,
+            "id": 53172,
             "nodeType": "FunctionDefinition",
             "src": "2397:174:52",
             "nodes": [],
@@ -4046,17 +4046,17 @@
             "name": "revoke",
             "nameLocation": "2406:6:52",
             "parameters": {
-              "id": 53022,
+              "id": 53170,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53014,
+                  "id": 53162,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "2430:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53024,
+                  "scope": 53172,
                   "src": "2422:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4065,7 +4065,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53013,
+                    "id": 53161,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2422:7:52",
@@ -4078,12 +4078,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53016,
+                  "id": 53164,
                   "mutability": "mutable",
                   "name": "reason",
                   "nameLocation": "2469:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53024,
+                  "scope": 53172,
                   "src": "2453:22:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4092,7 +4092,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 53015,
+                    "id": 53163,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2453:6:52",
@@ -4105,12 +4105,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53019,
+                  "id": 53167,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Token",
                   "nameLocation": "2492:22:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53024,
+                  "scope": 53172,
                   "src": "2485:29:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4119,10 +4119,10 @@
                     "typeString": "contract IERC20"
                   },
                   "typeName": {
-                    "id": 53018,
+                    "id": 53166,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 53017,
+                      "id": 53165,
                       "name": "IERC20",
                       "nameLocations": ["2485:6:52"],
                       "nodeType": "IdentifierPath",
@@ -4140,12 +4140,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53021,
+                  "id": 53169,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Amount",
                   "nameLocation": "2532:23:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53024,
+                  "scope": 53172,
                   "src": "2524:31:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4154,7 +4154,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53020,
+                    "id": 53168,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2524:7:52",
@@ -4169,18 +4169,18 @@
               "src": "2412:149:52"
             },
             "returnParameters": {
-              "id": 53023,
+              "id": 53171,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2570:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53031,
+            "id": 53179,
             "nodeType": "FunctionDefinition",
             "src": "2577:88:52",
             "nodes": [],
@@ -4191,17 +4191,17 @@
             "name": "revokeOffchain",
             "nameLocation": "2586:14:52",
             "parameters": {
-              "id": 53029,
+              "id": 53177,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53026,
+                  "id": 53174,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "2617:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53031,
+                  "scope": 53179,
                   "src": "2601:29:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4210,7 +4210,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 53025,
+                    "id": 53173,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2601:6:52",
@@ -4223,12 +4223,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53028,
+                  "id": 53176,
                   "mutability": "mutable",
                   "name": "reason",
                   "nameLocation": "2648:6:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53031,
+                  "scope": 53179,
                   "src": "2632:22:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4237,7 +4237,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 53027,
+                    "id": 53175,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2632:6:52",
@@ -4252,18 +4252,18 @@
               "src": "2600:55:52"
             },
             "returnParameters": {
-              "id": 53030,
+              "id": 53178,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2664:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53045,
+            "id": 53193,
             "nodeType": "FunctionDefinition",
             "src": "2671:144:52",
             "nodes": [],
@@ -4274,48 +4274,48 @@
             "name": "registerBatch",
             "nameLocation": "2680:13:52",
             "parameters": {
-              "id": 53040,
+              "id": 53188,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53035,
+                  "id": 53183,
                   "mutability": "mutable",
                   "name": "uris",
                   "nameLocation": "2720:4:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53045,
+                  "scope": 53193,
                   "src": "2694:30:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_SchemaMetadata_$53614_calldata_ptr_$dyn_calldata_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_SchemaMetadata_$53762_calldata_ptr_$dyn_calldata_ptr",
                     "typeString": "struct SchemaMetadata[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53033,
+                      "id": 53181,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 53032,
+                        "id": 53180,
                         "name": "SchemaMetadata",
                         "nameLocations": ["2694:14:52"],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 53614,
+                        "referencedDeclaration": 53762,
                         "src": "2694:14:52"
                       },
-                      "referencedDeclaration": 53614,
+                      "referencedDeclaration": 53762,
                       "src": "2694:14:52",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_SchemaMetadata_$53614_storage_ptr",
+                        "typeIdentifier": "t_struct$_SchemaMetadata_$53762_storage_ptr",
                         "typeString": "struct SchemaMetadata"
                       }
                     },
-                    "id": 53034,
+                    "id": 53182,
                     "nodeType": "ArrayTypeName",
                     "src": "2694:16:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_SchemaMetadata_$53614_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_SchemaMetadata_$53762_storage_$dyn_storage_ptr",
                       "typeString": "struct SchemaMetadata[]"
                     }
                   },
@@ -4323,43 +4323,43 @@
                 },
                 {
                   "constant": false,
-                  "id": 53039,
+                  "id": 53187,
                   "mutability": "mutable",
                   "name": "schemas",
                   "nameLocation": "2744:7:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53045,
+                  "scope": 53193,
                   "src": "2726:25:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Schema_$53633_calldata_ptr_$dyn_calldata_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Schema_$53781_calldata_ptr_$dyn_calldata_ptr",
                     "typeString": "struct Schema[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53037,
+                      "id": 53185,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 53036,
+                        "id": 53184,
                         "name": "Schema",
                         "nameLocations": ["2726:6:52"],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 53633,
+                        "referencedDeclaration": 53781,
                         "src": "2726:6:52"
                       },
-                      "referencedDeclaration": 53633,
+                      "referencedDeclaration": 53781,
                       "src": "2726:6:52",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Schema_$53633_storage_ptr",
+                        "typeIdentifier": "t_struct$_Schema_$53781_storage_ptr",
                         "typeString": "struct Schema"
                       }
                     },
-                    "id": 53038,
+                    "id": 53186,
                     "nodeType": "ArrayTypeName",
                     "src": "2726:8:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Schema_$53633_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Schema_$53781_storage_$dyn_storage_ptr",
                       "typeString": "struct Schema[]"
                     }
                   },
@@ -4369,17 +4369,17 @@
               "src": "2693:59:52"
             },
             "returnParameters": {
-              "id": 53044,
+              "id": 53192,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53043,
+                  "id": 53191,
                   "mutability": "mutable",
                   "name": "schemaIds",
                   "nameLocation": "2804:9:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53045,
+                  "scope": 53193,
                   "src": "2787:26:52",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4389,7 +4389,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53041,
+                      "id": 53189,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2787:7:52",
@@ -4398,7 +4398,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53042,
+                    "id": 53190,
                     "nodeType": "ArrayTypeName",
                     "src": "2787:9:52",
                     "typeDescriptions": {
@@ -4411,65 +4411,65 @@
               ],
               "src": "2786:28:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53055,
+            "id": 53203,
             "nodeType": "FunctionDefinition",
             "src": "2821:109:52",
             "nodes": [],
-            "functionSelector": "ccbd3912",
+            "functionSelector": "edfaa2ae",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "attestBatch",
             "nameLocation": "2830:11:52",
             "parameters": {
-              "id": 53050,
+              "id": 53198,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53049,
+                  "id": 53197,
                   "mutability": "mutable",
                   "name": "attestations",
                   "nameLocation": "2865:12:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53055,
+                  "scope": 53203,
                   "src": "2842:35:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Attestation_$53601_calldata_ptr_$dyn_calldata_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Attestation_$53749_calldata_ptr_$dyn_calldata_ptr",
                     "typeString": "struct Attestation[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53047,
+                      "id": 53195,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 53046,
+                        "id": 53194,
                         "name": "Attestation",
                         "nameLocations": ["2842:11:52"],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 53601,
+                        "referencedDeclaration": 53749,
                         "src": "2842:11:52"
                       },
-                      "referencedDeclaration": 53601,
+                      "referencedDeclaration": 53749,
                       "src": "2842:11:52",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Attestation_$53601_storage_ptr",
+                        "typeIdentifier": "t_struct$_Attestation_$53749_storage_ptr",
                         "typeString": "struct Attestation"
                       }
                     },
-                    "id": 53048,
+                    "id": 53196,
                     "nodeType": "ArrayTypeName",
                     "src": "2842:13:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Attestation_$53601_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Attestation_$53749_storage_$dyn_storage_ptr",
                       "typeString": "struct Attestation[]"
                     }
                   },
@@ -4479,17 +4479,17 @@
               "src": "2841:37:52"
             },
             "returnParameters": {
-              "id": 53054,
+              "id": 53202,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53053,
+                  "id": 53201,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "2914:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53055,
+                  "scope": 53203,
                   "src": "2897:31:52",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4499,7 +4499,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53051,
+                      "id": 53199,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2897:7:52",
@@ -4508,7 +4508,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53052,
+                    "id": 53200,
                     "nodeType": "ArrayTypeName",
                     "src": "2897:9:52",
                     "typeDescriptions": {
@@ -4521,65 +4521,65 @@
               ],
               "src": "2896:33:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53068,
+            "id": 53216,
             "nodeType": "FunctionDefinition",
             "src": "2936:177:52",
             "nodes": [],
-            "functionSelector": "b58afa2e",
+            "functionSelector": "ec86dea7",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "attestBatch",
             "nameLocation": "2945:11:52",
             "parameters": {
-              "id": 53063,
+              "id": 53211,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53059,
+                  "id": 53207,
                   "mutability": "mutable",
                   "name": "attestations",
                   "nameLocation": "2980:12:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53068,
+                  "scope": 53216,
                   "src": "2957:35:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Attestation_$53601_calldata_ptr_$dyn_calldata_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Attestation_$53749_calldata_ptr_$dyn_calldata_ptr",
                     "typeString": "struct Attestation[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53057,
+                      "id": 53205,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 53056,
+                        "id": 53204,
                         "name": "Attestation",
                         "nameLocations": ["2957:11:52"],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 53601,
+                        "referencedDeclaration": 53749,
                         "src": "2957:11:52"
                       },
-                      "referencedDeclaration": 53601,
+                      "referencedDeclaration": 53749,
                       "src": "2957:11:52",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Attestation_$53601_storage_ptr",
+                        "typeIdentifier": "t_struct$_Attestation_$53749_storage_ptr",
                         "typeString": "struct Attestation"
                       }
                     },
-                    "id": 53058,
+                    "id": 53206,
                     "nodeType": "ArrayTypeName",
                     "src": "2957:13:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Attestation_$53601_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Attestation_$53749_storage_$dyn_storage_ptr",
                       "typeString": "struct Attestation[]"
                     }
                   },
@@ -4587,12 +4587,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53062,
+                  "id": 53210,
                   "mutability": "mutable",
                   "name": "resolverFeesETH",
                   "nameLocation": "3013:15:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53068,
+                  "scope": 53216,
                   "src": "2994:34:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4602,7 +4602,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53060,
+                      "id": 53208,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2994:7:52",
@@ -4611,7 +4611,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53061,
+                    "id": 53209,
                     "nodeType": "ArrayTypeName",
                     "src": "2994:9:52",
                     "typeDescriptions": {
@@ -4625,17 +4625,17 @@
               "src": "2956:73:52"
             },
             "returnParameters": {
-              "id": 53067,
+              "id": 53215,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53066,
+                  "id": 53214,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "3097:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53068,
+                  "scope": 53216,
                   "src": "3080:31:52",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4645,7 +4645,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53064,
+                      "id": 53212,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3080:7:52",
@@ -4654,7 +4654,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53065,
+                    "id": 53213,
                     "nodeType": "ArrayTypeName",
                     "src": "3080:9:52",
                     "typeDescriptions": {
@@ -4667,65 +4667,65 @@
               ],
               "src": "3079:33:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53085,
+            "id": 53233,
             "nodeType": "FunctionDefinition",
             "src": "3119:226:52",
             "nodes": [],
-            "functionSelector": "ec56cad3",
+            "functionSelector": "6dea2ad3",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "attestBatch",
             "nameLocation": "3128:11:52",
             "parameters": {
-              "id": 53080,
+              "id": 53228,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53072,
+                  "id": 53220,
                   "mutability": "mutable",
                   "name": "attestations",
                   "nameLocation": "3172:12:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53085,
+                  "scope": 53233,
                   "src": "3149:35:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Attestation_$53601_calldata_ptr_$dyn_calldata_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Attestation_$53749_calldata_ptr_$dyn_calldata_ptr",
                     "typeString": "struct Attestation[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53070,
+                      "id": 53218,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 53069,
+                        "id": 53217,
                         "name": "Attestation",
                         "nameLocations": ["3149:11:52"],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 53601,
+                        "referencedDeclaration": 53749,
                         "src": "3149:11:52"
                       },
-                      "referencedDeclaration": 53601,
+                      "referencedDeclaration": 53749,
                       "src": "3149:11:52",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Attestation_$53601_storage_ptr",
+                        "typeIdentifier": "t_struct$_Attestation_$53749_storage_ptr",
                         "typeString": "struct Attestation"
                       }
                     },
-                    "id": 53071,
+                    "id": 53219,
                     "nodeType": "ArrayTypeName",
                     "src": "3149:13:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Attestation_$53601_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Attestation_$53749_storage_$dyn_storage_ptr",
                       "typeString": "struct Attestation[]"
                     }
                   },
@@ -4733,12 +4733,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53076,
+                  "id": 53224,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Tokens",
                   "nameLocation": "3212:23:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53085,
+                  "scope": 53233,
                   "src": "3194:41:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4748,10 +4748,10 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53074,
+                      "id": 53222,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 53073,
+                        "id": 53221,
                         "name": "IERC20",
                         "nameLocations": ["3194:6:52"],
                         "nodeType": "IdentifierPath",
@@ -4765,7 +4765,7 @@
                         "typeString": "contract IERC20"
                       }
                     },
-                    "id": 53075,
+                    "id": 53223,
                     "nodeType": "ArrayTypeName",
                     "src": "3194:8:52",
                     "typeDescriptions": {
@@ -4777,12 +4777,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53079,
+                  "id": 53227,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Amount",
                   "nameLocation": "3264:23:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53085,
+                  "scope": 53233,
                   "src": "3245:42:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4792,7 +4792,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53077,
+                      "id": 53225,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3245:7:52",
@@ -4801,7 +4801,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53078,
+                    "id": 53226,
                     "nodeType": "ArrayTypeName",
                     "src": "3245:9:52",
                     "typeDescriptions": {
@@ -4815,17 +4815,17 @@
               "src": "3139:154:52"
             },
             "returnParameters": {
-              "id": 53084,
+              "id": 53232,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53083,
+                  "id": 53231,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "3329:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53085,
+                  "scope": 53233,
                   "src": "3312:31:52",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4835,7 +4835,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53081,
+                      "id": 53229,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3312:7:52",
@@ -4844,7 +4844,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53082,
+                    "id": 53230,
                     "nodeType": "ArrayTypeName",
                     "src": "3312:9:52",
                     "typeDescriptions": {
@@ -4857,13 +4857,13 @@
               ],
               "src": "3311:33:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53091,
+            "id": 53239,
             "nodeType": "FunctionDefinition",
             "src": "3351:72:52",
             "nodes": [],
@@ -4874,17 +4874,17 @@
             "name": "attestOffchainBatch",
             "nameLocation": "3360:19:52",
             "parameters": {
-              "id": 53089,
+              "id": 53237,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53088,
+                  "id": 53236,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "3398:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53091,
+                  "scope": 53239,
                   "src": "3380:32:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4894,7 +4894,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53086,
+                      "id": 53234,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
                       "src": "3380:6:52",
@@ -4903,7 +4903,7 @@
                         "typeString": "string"
                       }
                     },
-                    "id": 53087,
+                    "id": 53235,
                     "nodeType": "ArrayTypeName",
                     "src": "3380:8:52",
                     "typeDescriptions": {
@@ -4917,18 +4917,18 @@
               "src": "3379:34:52"
             },
             "returnParameters": {
-              "id": 53090,
+              "id": 53238,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3422:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53100,
+            "id": 53248,
             "nodeType": "FunctionDefinition",
             "src": "3429:92:52",
             "nodes": [],
@@ -4939,17 +4939,17 @@
             "name": "revokeBatch",
             "nameLocation": "3438:11:52",
             "parameters": {
-              "id": 53098,
+              "id": 53246,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53094,
+                  "id": 53242,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "3469:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53100,
+                  "scope": 53248,
                   "src": "3450:33:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4959,7 +4959,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53092,
+                      "id": 53240,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3450:7:52",
@@ -4968,7 +4968,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53093,
+                    "id": 53241,
                     "nodeType": "ArrayTypeName",
                     "src": "3450:9:52",
                     "typeDescriptions": {
@@ -4980,12 +4980,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53097,
+                  "id": 53245,
                   "mutability": "mutable",
                   "name": "reasons",
                   "nameLocation": "3503:7:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53100,
+                  "scope": 53248,
                   "src": "3485:25:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4995,7 +4995,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53095,
+                      "id": 53243,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
                       "src": "3485:6:52",
@@ -5004,7 +5004,7 @@
                         "typeString": "string"
                       }
                     },
-                    "id": 53096,
+                    "id": 53244,
                     "nodeType": "ArrayTypeName",
                     "src": "3485:8:52",
                     "typeDescriptions": {
@@ -5018,18 +5018,18 @@
               "src": "3449:62:52"
             },
             "returnParameters": {
-              "id": 53099,
+              "id": 53247,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3520:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53112,
+            "id": 53260,
             "nodeType": "FunctionDefinition",
             "src": "3527:166:52",
             "nodes": [],
@@ -5040,17 +5040,17 @@
             "name": "revokeBatch",
             "nameLocation": "3536:11:52",
             "parameters": {
-              "id": 53110,
+              "id": 53258,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53103,
+                  "id": 53251,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "3576:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53112,
+                  "scope": 53260,
                   "src": "3557:33:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5060,7 +5060,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53101,
+                      "id": 53249,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3557:7:52",
@@ -5069,7 +5069,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53102,
+                    "id": 53250,
                     "nodeType": "ArrayTypeName",
                     "src": "3557:9:52",
                     "typeDescriptions": {
@@ -5081,12 +5081,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53106,
+                  "id": 53254,
                   "mutability": "mutable",
                   "name": "reasons",
                   "nameLocation": "3618:7:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53112,
+                  "scope": 53260,
                   "src": "3600:25:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5096,7 +5096,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53104,
+                      "id": 53252,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
                       "src": "3600:6:52",
@@ -5105,7 +5105,7 @@
                         "typeString": "string"
                       }
                     },
-                    "id": 53105,
+                    "id": 53253,
                     "nodeType": "ArrayTypeName",
                     "src": "3600:8:52",
                     "typeDescriptions": {
@@ -5117,12 +5117,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53109,
+                  "id": 53257,
                   "mutability": "mutable",
                   "name": "resolverFeesETH",
                   "nameLocation": "3654:15:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53112,
+                  "scope": 53260,
                   "src": "3635:34:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5132,7 +5132,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53107,
+                      "id": 53255,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3635:7:52",
@@ -5141,7 +5141,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53108,
+                    "id": 53256,
                     "nodeType": "ArrayTypeName",
                     "src": "3635:9:52",
                     "typeDescriptions": {
@@ -5155,18 +5155,18 @@
               "src": "3547:128:52"
             },
             "returnParameters": {
-              "id": 53111,
+              "id": 53259,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3692:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53128,
+            "id": 53276,
             "nodeType": "FunctionDefinition",
             "src": "3699:217:52",
             "nodes": [],
@@ -5177,17 +5177,17 @@
             "name": "revokeBatch",
             "nameLocation": "3708:11:52",
             "parameters": {
-              "id": 53126,
+              "id": 53274,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53115,
+                  "id": 53263,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "3748:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53128,
+                  "scope": 53276,
                   "src": "3729:33:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5197,7 +5197,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53113,
+                      "id": 53261,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3729:7:52",
@@ -5206,7 +5206,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53114,
+                    "id": 53262,
                     "nodeType": "ArrayTypeName",
                     "src": "3729:9:52",
                     "typeDescriptions": {
@@ -5218,12 +5218,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53118,
+                  "id": 53266,
                   "mutability": "mutable",
                   "name": "reasons",
                   "nameLocation": "3790:7:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53128,
+                  "scope": 53276,
                   "src": "3772:25:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5233,7 +5233,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53116,
+                      "id": 53264,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
                       "src": "3772:6:52",
@@ -5242,7 +5242,7 @@
                         "typeString": "string"
                       }
                     },
-                    "id": 53117,
+                    "id": 53265,
                     "nodeType": "ArrayTypeName",
                     "src": "3772:8:52",
                     "typeDescriptions": {
@@ -5254,12 +5254,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53122,
+                  "id": 53270,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Tokens",
                   "nameLocation": "3825:23:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53128,
+                  "scope": 53276,
                   "src": "3807:41:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5269,10 +5269,10 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53120,
+                      "id": 53268,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 53119,
+                        "id": 53267,
                         "name": "IERC20",
                         "nameLocations": ["3807:6:52"],
                         "nodeType": "IdentifierPath",
@@ -5286,7 +5286,7 @@
                         "typeString": "contract IERC20"
                       }
                     },
-                    "id": 53121,
+                    "id": 53269,
                     "nodeType": "ArrayTypeName",
                     "src": "3807:8:52",
                     "typeDescriptions": {
@@ -5298,12 +5298,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53125,
+                  "id": 53273,
                   "mutability": "mutable",
                   "name": "resolverFeesERC20Amount",
                   "nameLocation": "3877:23:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53128,
+                  "scope": 53276,
                   "src": "3858:42:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5313,7 +5313,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53123,
+                      "id": 53271,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "3858:7:52",
@@ -5322,7 +5322,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 53124,
+                    "id": 53272,
                     "nodeType": "ArrayTypeName",
                     "src": "3858:9:52",
                     "typeDescriptions": {
@@ -5336,18 +5336,18 @@
               "src": "3719:187:52"
             },
             "returnParameters": {
-              "id": 53127,
+              "id": 53275,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3915:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53137,
+            "id": 53285,
             "nodeType": "FunctionDefinition",
             "src": "3922:99:52",
             "nodes": [],
@@ -5358,17 +5358,17 @@
             "name": "revokeOffchainBatch",
             "nameLocation": "3931:19:52",
             "parameters": {
-              "id": 53135,
+              "id": 53283,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53131,
+                  "id": 53279,
                   "mutability": "mutable",
                   "name": "attestationIds",
                   "nameLocation": "3969:14:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53137,
+                  "scope": 53285,
                   "src": "3951:32:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5378,7 +5378,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53129,
+                      "id": 53277,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
                       "src": "3951:6:52",
@@ -5387,7 +5387,7 @@
                         "typeString": "string"
                       }
                     },
-                    "id": 53130,
+                    "id": 53278,
                     "nodeType": "ArrayTypeName",
                     "src": "3951:8:52",
                     "typeDescriptions": {
@@ -5399,12 +5399,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 53134,
+                  "id": 53282,
                   "mutability": "mutable",
                   "name": "reasons",
                   "nameLocation": "4003:7:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53137,
+                  "scope": 53285,
                   "src": "3985:25:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5414,7 +5414,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 53132,
+                      "id": 53280,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
                       "src": "3985:6:52",
@@ -5423,7 +5423,7 @@
                         "typeString": "string"
                       }
                     },
-                    "id": 53133,
+                    "id": 53281,
                     "nodeType": "ArrayTypeName",
                     "src": "3985:8:52",
                     "typeDescriptions": {
@@ -5437,18 +5437,18 @@
               "src": "3950:61:52"
             },
             "returnParameters": {
-              "id": 53136,
+              "id": 53284,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4020:0:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53145,
+            "id": 53293,
             "nodeType": "FunctionDefinition",
             "src": "4027:75:52",
             "nodes": [],
@@ -5459,17 +5459,17 @@
             "name": "getSchema",
             "nameLocation": "4036:9:52",
             "parameters": {
-              "id": 53140,
+              "id": 53288,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53139,
+                  "id": 53287,
                   "mutability": "mutable",
                   "name": "schemaId",
                   "nameLocation": "4054:8:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53145,
+                  "scope": 53293,
                   "src": "4046:16:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5478,7 +5478,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53138,
+                    "id": 53286,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4046:7:52",
@@ -5493,39 +5493,39 @@
               "src": "4045:18:52"
             },
             "returnParameters": {
-              "id": 53144,
+              "id": 53292,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53143,
+                  "id": 53291,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53145,
+                  "scope": 53293,
                   "src": "4087:13:52",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Schema_$53633_memory_ptr",
+                    "typeIdentifier": "t_struct$_Schema_$53781_memory_ptr",
                     "typeString": "struct Schema"
                   },
                   "typeName": {
-                    "id": 53142,
+                    "id": 53290,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 53141,
+                      "id": 53289,
                       "name": "Schema",
                       "nameLocations": ["4087:6:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53633,
+                      "referencedDeclaration": 53781,
                       "src": "4087:6:52"
                     },
-                    "referencedDeclaration": 53633,
+                    "referencedDeclaration": 53781,
                     "src": "4087:6:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Schema_$53633_storage_ptr",
+                      "typeIdentifier": "t_struct$_Schema_$53781_storage_ptr",
                       "typeString": "struct Schema"
                     }
                   },
@@ -5534,13 +5534,13 @@
               ],
               "src": "4086:15:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53153,
+            "id": 53301,
             "nodeType": "FunctionDefinition",
             "src": "4108:90:52",
             "nodes": [],
@@ -5551,17 +5551,17 @@
             "name": "getAttestation",
             "nameLocation": "4117:14:52",
             "parameters": {
-              "id": 53148,
+              "id": 53296,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53147,
+                  "id": 53295,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "4140:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53153,
+                  "scope": 53301,
                   "src": "4132:21:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5570,7 +5570,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53146,
+                    "id": 53294,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4132:7:52",
@@ -5585,39 +5585,39 @@
               "src": "4131:23:52"
             },
             "returnParameters": {
-              "id": 53152,
+              "id": 53300,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53151,
+                  "id": 53299,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53153,
+                  "scope": 53301,
                   "src": "4178:18:52",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Attestation_$53601_memory_ptr",
+                    "typeIdentifier": "t_struct$_Attestation_$53749_memory_ptr",
                     "typeString": "struct Attestation"
                   },
                   "typeName": {
-                    "id": 53150,
+                    "id": 53298,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 53149,
+                      "id": 53297,
                       "name": "Attestation",
                       "nameLocations": ["4178:11:52"],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 53601,
+                      "referencedDeclaration": 53749,
                       "src": "4178:11:52"
                     },
-                    "referencedDeclaration": 53601,
+                    "referencedDeclaration": 53749,
                     "src": "4178:11:52",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Attestation_$53601_storage_ptr",
+                      "typeIdentifier": "t_struct$_Attestation_$53749_storage_ptr",
                       "typeString": "struct Attestation"
                     }
                   },
@@ -5626,13 +5626,13 @@
               ],
               "src": "4177:20:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53160,
+            "id": 53308,
             "nodeType": "FunctionDefinition",
             "src": "4204:105:52",
             "nodes": [],
@@ -5643,17 +5643,17 @@
             "name": "getOffchainAttestation",
             "nameLocation": "4213:22:52",
             "parameters": {
-              "id": 53156,
+              "id": 53304,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53155,
+                  "id": 53303,
                   "mutability": "mutable",
                   "name": "attestationId",
                   "nameLocation": "4252:13:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53160,
+                  "scope": 53308,
                   "src": "4236:29:52",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5662,7 +5662,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 53154,
+                    "id": 53302,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "4236:6:52",
@@ -5677,17 +5677,17 @@
               "src": "4235:31:52"
             },
             "returnParameters": {
-              "id": 53159,
+              "id": 53307,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53158,
+                  "id": 53306,
                   "mutability": "mutable",
                   "name": "timestamp",
                   "nameLocation": "4298:9:52",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53160,
+                  "scope": 53308,
                   "src": "4290:17:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5696,7 +5696,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53157,
+                    "id": 53305,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4290:7:52",
@@ -5710,13 +5710,13 @@
               ],
               "src": "4289:19:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53165,
+            "id": 53313,
             "nodeType": "FunctionDefinition",
             "src": "4315:57:52",
             "nodes": [],
@@ -5727,23 +5727,23 @@
             "name": "schemaCounter",
             "nameLocation": "4324:13:52",
             "parameters": {
-              "id": 53161,
+              "id": 53309,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4337:2:52"
             },
             "returnParameters": {
-              "id": 53164,
+              "id": 53312,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53163,
+                  "id": 53311,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53165,
+                  "scope": 53313,
                   "src": "4363:7:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5752,7 +5752,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53162,
+                    "id": 53310,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4363:7:52",
@@ -5766,13 +5766,13 @@
               ],
               "src": "4362:9:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 53170,
+            "id": 53318,
             "nodeType": "FunctionDefinition",
             "src": "4378:62:52",
             "nodes": [],
@@ -5783,23 +5783,23 @@
             "name": "attestationCounter",
             "nameLocation": "4387:18:52",
             "parameters": {
-              "id": 53166,
+              "id": 53314,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4405:2:52"
             },
             "returnParameters": {
-              "id": 53169,
+              "id": 53317,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 53168,
+                  "id": 53316,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 53170,
+                  "scope": 53318,
                   "src": "4431:7:52",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5808,7 +5808,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 53167,
+                    "id": 53315,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4431:7:52",
@@ -5822,7 +5822,7 @@
               ],
               "src": "4430:9:52"
             },
-            "scope": 53171,
+            "scope": 53319,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -5832,14 +5832,14 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 52875,
+              "id": 53023,
               "name": "IVersionable",
               "nameLocations": ["522:12:52"],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 53232,
+              "referencedDeclaration": 53380,
               "src": "522:12:52"
             },
-            "id": 52876,
+            "id": 53024,
             "nodeType": "InheritanceSpecifier",
             "src": "522:12:52"
           }
@@ -5848,20 +5848,20 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 52874,
+          "id": 53022,
           "nodeType": "StructuredDocumentation",
           "src": "422:82:52",
           "text": " @title SIGN Attestation Protocol Interface\n @author Jack Xu @ EthSign"
         },
         "fullyImplemented": false,
-        "linearizedBaseContracts": [53171, 53232],
+        "linearizedBaseContracts": [53319, 53380],
         "name": "ISP",
         "nameLocation": "515:3:52",
-        "scope": 53172,
+        "scope": 53320,
         "usedErrors": [
-          52909, 52915, 52919, 52927, 52931, 52937, 52941, 52945, 52949
+          53057, 53063, 53067, 53075, 53079, 53085, 53089, 53093, 53097
         ],
-        "usedEvents": [52885, 52889, 52895, 52899, 52905]
+        "usedEvents": [53033, 53037, 53043, 53047, 53053]
       }
     ],
     "license": "UNLICENSED"
