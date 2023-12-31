@@ -31,6 +31,6 @@ dataSources:
           handler: handleOffchainAttestationMade
         - event: OffchainAttestationRevoked(string,string)
           handler: handleOffchainAttestationRevoked
-        - event: SchemaRegistered(uint256,uint8,string)
+        - event: SchemaRegistered(uint256)
           handler: handleSchemaRegistered
       file: ./src/sp.ts

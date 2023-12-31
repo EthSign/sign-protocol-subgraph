@@ -161,22 +161,21 @@ export function handleOffchainAttestationRevoked(
 
 export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   let entity = new Schema(event.params.schemaId.toHexString());
-  let metadataLocation = dataLocationNumberToEnumString(
-    event.params.metadataDataLocation
-  );
-
   const schema = SP.bind(event.address).getSchema(event.params.schemaId);
   entity.transactionHash = event.transaction.hash;
   entity.registrant = event.transaction.from;
   entity.revocable = schema.revocable;
-  entity.dataLocation = dataLocationNumberToEnumString(schema.dataLocation);
+  entity.attestationDataLocation = dataLocationNumberToEnumString(
+    schema.attestationDataLocation
+  );
+  entity.schemaDataLocation = dataLocationNumberToEnumString(
+    schema.schemaDataLocation
+  );
   entity.maxValidFor = schema.maxValidFor;
   entity.resolver = schema.resolver;
-  entity.schema = schema.schema;
+  entity.data = schema.data;
   entity.registerTimestamp = event.block.timestamp;
   entity.numberOfAttestations = 0;
-  entity.metadataLocation = metadataLocation;
-  entity.metadataURI = event.params.metadataUri;
   entity.save();
 
   updateUserMetric(event.transaction.from, false, event.params.schemaId);

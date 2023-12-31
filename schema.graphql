@@ -10,14 +10,13 @@ type Schema @entity(immutable: true) {
   transactionHash: Bytes!
   registrant: Bytes!
   revocable: Boolean!
-  dataLocation: DataLocation!
+  schemaDataLocation: DataLocation!
+  attestationDataLocation: DataLocation!
   maxValidFor: BigInt!
   resolver: Bytes!
-  schema: String!
+  data: String!
   registerTimestamp: BigInt!
   numberOfAttestations: Int!
-  metadataLocation: DataLocation!
-  metadataURI: String
 }
 
 type Attestation @entity {
