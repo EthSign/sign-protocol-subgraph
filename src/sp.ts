@@ -1,4 +1,4 @@
-import { Address, BigInt, Bytes } from "@graphprotocol/graph-ts";
+import { BigInt, Bytes, log } from "@graphprotocol/graph-ts";
 import {
   AttestationMade as AttestationMadeEvent,
   AttestationRevoked as AttestationRevokedEvent,
@@ -16,18 +16,18 @@ import {
 } from "../generated/schema";
 
 function processAttestationRecipients(
-  addressArray: Address[],
+  recipientArray: Bytes[],
   attestationId: BigInt
 ): void {
-  for (let i = 0; i < addressArray.length; i++) {
-    addAttestationToUser(addressArray[i], attestationId);
+  for (let i = 0; i < recipientArray.length; i++) {
+    addAttestationToUser(recipientArray[i], attestationId);
   }
 }
 
-function addAttestationToUser(address: Bytes, attestationId: BigInt): void {
-  let user = User.load(address);
+function addAttestationToUser(recipient: Bytes, attestationId: BigInt): void {
+  let user = User.load(recipient);
   if (user === null) {
-    user = new User(address);
+    user = new User(recipient);
     user.attestations = [];
     user.schemas = [];
     user.attestationRecipient = [attestationId.toHexString()];
@@ -42,7 +42,7 @@ function addAttestationToUser(address: Bytes, attestationId: BigInt): void {
   }
   user.save();
 
-  const attestationReceipientEntityID = `${attestationId.toHexString()}-${address.toHexString()}`;
+  const attestationReceipientEntityID = `${attestationId.toHexString()}-${recipient.toHexString()}`;
   let attestationReceipientEntity = AttestationRecipient.load(
     attestationReceipientEntityID
   );
@@ -51,7 +51,7 @@ function addAttestationToUser(address: Bytes, attestationId: BigInt): void {
       attestationReceipientEntityID
     );
     attestationReceipientEntity.attestationId = attestationId.toHexString();
-    attestationReceipientEntity.recipient = address;
+    attestationReceipientEntity.recipient = recipient;
     attestationReceipientEntity.save();
   }
 }
