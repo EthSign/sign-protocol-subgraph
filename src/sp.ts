@@ -117,6 +117,7 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
     entity.linkedAttestation = attestation.linkedAttestationId.toHexString();
   }
   entity.transactionHash = event.transaction.hash;
+  entity.indexingKey = event.params.indexingKey;
   entity.attester = event.transaction.from;
   entity.attestTimestamp = event.block.timestamp;
   entity.validUntil = attestation.validUntil;

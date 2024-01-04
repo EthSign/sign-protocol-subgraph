@@ -23,7 +23,7 @@ dataSources:
         - name: SP
           file: ./abis/ISP.json
       eventHandlers:
-        - event: AttestationMade(uint256)
+        - event: AttestationMade(uint256,string)
           handler: handleAttestationMade
         - event: AttestationRevoked(uint256,string)
           handler: handleAttestationRevoked

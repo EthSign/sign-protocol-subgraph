@@ -22,6 +22,7 @@ type Schema @entity(immutable: true) {
 type Attestation @entity {
   id: String!
   transactionHash: Bytes!
+  indexingKey: String!
   schema: Schema!
   linkedAttestation: Attestation
   attester: Bytes!
