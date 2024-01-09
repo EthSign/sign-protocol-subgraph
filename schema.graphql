@@ -10,8 +10,7 @@ type Schema @entity(immutable: true) {
   transactionHash: Bytes!
   registrant: Bytes!
   revocable: Boolean!
-  schemaDataLocation: DataLocation!
-  attestationDataLocation: DataLocation!
+  dataLocation: DataLocation!
   maxValidFor: BigInt!
   resolver: Bytes!
   data: String!
@@ -22,6 +21,7 @@ type Schema @entity(immutable: true) {
 type Attestation @entity {
   id: String!
   transactionHash: Bytes!
+  dataLocation: DataLocation!
   indexingKey: String!
   schema: Schema!
   linkedAttestation: Attestation

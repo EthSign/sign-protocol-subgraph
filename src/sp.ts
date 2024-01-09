@@ -117,6 +117,9 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
     entity.linkedAttestation = attestation.linkedAttestationId.toHexString();
   }
   entity.transactionHash = event.transaction.hash;
+  entity.dataLocation = dataLocationNumberToEnumString(
+    attestation.dataLocation
+  );
   entity.indexingKey = event.params.indexingKey;
   entity.attester = event.transaction.from;
   entity.attestTimestamp = event.block.timestamp;
@@ -166,12 +169,7 @@ export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   entity.transactionHash = event.transaction.hash;
   entity.registrant = event.transaction.from;
   entity.revocable = schema.revocable;
-  entity.attestationDataLocation = dataLocationNumberToEnumString(
-    schema.attestationDataLocation
-  );
-  entity.schemaDataLocation = dataLocationNumberToEnumString(
-    schema.schemaDataLocation
-  );
+  entity.dataLocation = dataLocationNumberToEnumString(schema.dataLocation);
   entity.maxValidFor = schema.maxValidFor;
   entity.resolver = schema.resolver;
   entity.data = schema.data;
