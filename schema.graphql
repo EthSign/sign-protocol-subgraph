@@ -5,6 +5,24 @@ enum DataLocation {
   CUSTOM
 }
 
+enum EventType {
+  SchemaRegistered
+  AttestationMade
+  AttestationRevoked
+  OffchainAttestationMade
+  OffchainAttestationRevoked
+}
+
+type Event @entity(immutable: true) {
+  id: Bytes!
+  timestamp: BigInt!
+  transactionHash: Bytes!
+  type: EventType!
+  schema: Schema
+  attestation: Attestation
+  offchainAttestation: OffchainAttestation
+}
+
 type Schema @entity(immutable: true) {
   id: String!
   transactionHash: Bytes!

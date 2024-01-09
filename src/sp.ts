@@ -1,4 +1,4 @@
-import { BigInt, Bytes, log } from "@graphprotocol/graph-ts";
+import { BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
   AttestationMade as AttestationMadeEvent,
   AttestationRevoked as AttestationRevokedEvent,
@@ -13,6 +13,7 @@ import {
   OffchainAttestation,
   User,
   AttestationRecipient,
+  Event,
 } from "../generated/schema";
 
 function processAttestationRecipients(
@@ -132,6 +133,15 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
   entity.save();
 
   updateUserMetric(event.transaction.from, true, event.params.attestationId);
+
+  let _event = new Event(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
+  _event.timestamp = event.block.timestamp;
+  _event.transactionHash = event.transaction.hash;
+  _event.type = "AttestationMade";
+  _event.attestation = event.params.attestationId.toHexString();
+  _event.save();
 }
 
 export function handleAttestationRevoked(event: AttestationRevokedEvent): void {
@@ -141,6 +151,15 @@ export function handleAttestationRevoked(event: AttestationRevokedEvent): void {
   entity.revokeTimestamp = event.block.timestamp;
   entity.revokeTransactionHash = event.transaction.hash;
   entity.save();
+
+  let _event = new Event(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
+  _event.timestamp = event.block.timestamp;
+  _event.transactionHash = event.transaction.hash;
+  _event.type = "AttestationRevoked";
+  _event.attestation = event.params.attestationId.toHexString();
+  _event.save();
 }
 
 export function handleOffchainAttestationMade(
@@ -150,6 +169,15 @@ export function handleOffchainAttestationMade(
   entity.transactionHash = event.transaction.hash;
   entity.attestTimestamp = event.block.timestamp;
   entity.save();
+
+  let _event = new Event(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
+  _event.timestamp = event.block.timestamp;
+  _event.transactionHash = event.transaction.hash;
+  _event.type = "OffchainAttestationMade";
+  _event.offchainAttestation = event.params.attestationId;
+  _event.save();
 }
 
 export function handleOffchainAttestationRevoked(
@@ -161,6 +189,15 @@ export function handleOffchainAttestationRevoked(
   entity.revokeReason = event.params.reason;
   entity.revokeTransactionHash = event.transaction.hash;
   entity.save();
+
+  let _event = new Event(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
+  _event.timestamp = event.block.timestamp;
+  _event.transactionHash = event.transaction.hash;
+  _event.type = "OffchainAttestationRevoked";
+  _event.offchainAttestation = event.params.attestationId;
+  _event.save();
 }
 
 export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
@@ -178,4 +215,13 @@ export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   entity.save();
 
   updateUserMetric(event.transaction.from, false, event.params.schemaId);
+
+  let _event = new Event(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  );
+  _event.timestamp = event.block.timestamp;
+  _event.transactionHash = event.transaction.hash;
+  _event.type = "SchemaRegistered";
+  _event.schema = event.params.schemaId.toHexString();
+  _event.save();
 }
