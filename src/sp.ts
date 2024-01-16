@@ -208,7 +208,7 @@ export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   entity.revocable = schema.revocable;
   entity.dataLocation = dataLocationNumberToEnumString(schema.dataLocation);
   entity.maxValidFor = schema.maxValidFor;
-  entity.resolver = schema.resolver;
+  entity.hook = schema.hook;
   entity.data = schema.data;
   entity.registerTimestamp = event.block.timestamp;
   entity.numberOfAttestations = 0;

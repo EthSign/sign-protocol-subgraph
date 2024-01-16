@@ -30,7 +30,7 @@ type Schema @entity(immutable: true) {
   revocable: Boolean!
   dataLocation: DataLocation!
   maxValidFor: BigInt!
-  resolver: Bytes!
+  hook: Bytes!
   data: String!
   registerTimestamp: BigInt!
   numberOfAttestations: Int!
