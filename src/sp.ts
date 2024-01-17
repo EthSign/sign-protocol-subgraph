@@ -122,7 +122,7 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
     attestation.dataLocation
   );
   entity.indexingKey = event.params.indexingKey;
-  entity.attester = event.transaction.from;
+  entity.attester = attestation.attester;
   entity.attestTimestamp = event.block.timestamp;
   entity.validUntil = attestation.validUntil;
   entity.data = attestation.data;
