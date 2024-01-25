@@ -38,6 +38,7 @@ type Schema @entity(immutable: true) {
 
 type Attestation @entity {
   id: String!
+  from: Bytes!
   transactionHash: Bytes!
   dataLocation: DataLocation!
   indexingKey: String!

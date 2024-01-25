@@ -117,6 +117,7 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
   if (attestation.linkedAttestationId !== BigInt.fromI32(0)) {
     entity.linkedAttestation = attestation.linkedAttestationId.toHexString();
   }
+  entity.from = event.transaction.from;
   entity.transactionHash = event.transaction.hash;
   entity.dataLocation = dataLocationNumberToEnumString(
     attestation.dataLocation
