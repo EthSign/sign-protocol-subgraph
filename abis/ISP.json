@@ -128,6 +128,22 @@
       "type": "error"
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "expected",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "actual",
+          "type": "address"
+        }
+      ],
+      "name": "SchemaWrongRegistrant",
+      "type": "error"
+    },
+    {
       "anonymous": false,
       "inputs": [
         {
@@ -982,6 +998,11 @@
           "internalType": "string[]",
           "name": "offchainAttestationIds",
           "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "reasons",
+          "type": "string[]"
         }
       ],
       "name": "getDelegatedOffchainRevokeBatchHash",
@@ -1001,6 +1022,11 @@
           "internalType": "string",
           "name": "offchainAttestationId",
           "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
         }
       ],
       "name": "getDelegatedOffchainRevokeHash",
@@ -1017,9 +1043,116 @@
     {
       "inputs": [
         {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "registrant",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum DataLocation",
+              "name": "dataLocation",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint64",
+              "name": "maxValidFor",
+              "type": "uint64"
+            },
+            {
+              "internalType": "contract ISPHook",
+              "name": "hook",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "data",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct Schema[]",
+          "name": "schemas",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "getDelegatedRegisterBatchHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "registrant",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum DataLocation",
+              "name": "dataLocation",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint64",
+              "name": "maxValidFor",
+              "type": "uint64"
+            },
+            {
+              "internalType": "contract ISPHook",
+              "name": "hook",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "data",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct Schema",
+          "name": "schema",
+          "type": "tuple"
+        }
+      ],
+      "name": "getDelegatedRegisterHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "uint256[]",
           "name": "attestationIds",
           "type": "uint256[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "reasons",
+          "type": "string[]"
         }
       ],
       "name": "getDelegatedRevokeBatchHash",
@@ -1039,6 +1172,11 @@
           "internalType": "uint256",
           "name": "attestationId",
           "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
         }
       ],
       "name": "getDelegatedRevokeHash",
@@ -1096,6 +1234,11 @@
         {
           "components": [
             {
+              "internalType": "address",
+              "name": "registrant",
+              "type": "address"
+            },
+            {
               "internalType": "bool",
               "name": "revocable",
               "type": "bool"
@@ -1134,6 +1277,11 @@
         {
           "components": [
             {
+              "internalType": "address",
+              "name": "registrant",
+              "type": "address"
+            },
+            {
               "internalType": "bool",
               "name": "revocable",
               "type": "bool"
@@ -1162,6 +1310,11 @@
           "internalType": "struct Schema",
           "name": "schema",
           "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "delegateSignature",
+          "type": "bytes"
         }
       ],
       "name": "register",
@@ -1179,6 +1332,11 @@
       "inputs": [
         {
           "components": [
+            {
+              "internalType": "address",
+              "name": "registrant",
+              "type": "address"
+            },
             {
               "internalType": "bool",
               "name": "revocable",
@@ -1208,6 +1366,11 @@
           "internalType": "struct Schema[]",
           "name": "schemas",
           "type": "tuple[]"
+        },
+        {
+          "internalType": "bytes",
+          "name": "delegateSignature",
+          "type": "bytes"
         }
       ],
       "name": "registerBatch",
