@@ -33,4 +33,6 @@ dataSources:
           handler: handleOffchainAttestationRevoked
         - event: SchemaRegistered(uint256)
           handler: handleSchemaRegistered
+        - event: Initialized(uint64)
+          handler: handleInitialized
       file: ./src/sp.ts

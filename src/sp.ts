@@ -5,6 +5,7 @@ import {
   OffchainAttestationMade as OffchainAttestationMadeEvent,
   OffchainAttestationRevoked as OffchainAttestationRevokedEvent,
   SchemaRegistered as SchemaRegisteredEvent,
+  Initialized as InitializedEvent,
   SP,
 } from "../generated/SP/SP";
 import {
@@ -14,7 +15,40 @@ import {
   User,
   AttestationRecipient,
   Event,
+  Global,
 } from "../generated/schema";
+
+const GLOBAL_ID = "GLOBAL_ID";
+
+function incrementGlobalSchemaCount(): void {
+  let entity = Global.load(GLOBAL_ID)!;
+  entity.totalNumberOfSchemas += 1;
+  entity.save();
+}
+
+function incrementGlobalAttestationCount(): void {
+  let entity = Global.load(GLOBAL_ID)!;
+  entity.totalNumberOfAttestations += 1;
+  entity.save();
+}
+
+function incrementGlobalOffchainAttestationCount(): void {
+  let entity = Global.load(GLOBAL_ID)!;
+  entity.totalNumberOfOffchainAttestations += 1;
+  entity.save();
+}
+
+function incrementGlobalRevocationCount(): void {
+  let entity = Global.load(GLOBAL_ID)!;
+  entity.totalNumberOfRevocations += 1;
+  entity.save();
+}
+
+function incrementGlobalOffchainRevocationCount(): void {
+  let entity = Global.load(GLOBAL_ID)!;
+  entity.totalNumberOfOffchainRevocations += 1;
+  entity.save();
+}
 
 function processAttestationRecipients(
   recipientArray: Bytes[],
@@ -108,6 +142,19 @@ function updateUserMetric(
   user.save();
 }
 
+export function handleInitialized(event: InitializedEvent): void {
+  let entity = Global.load(GLOBAL_ID);
+  if (entity === null) {
+    entity = new Global(GLOBAL_ID);
+    entity.totalNumberOfSchemas = 0;
+    entity.totalNumberOfAttestations = 0;
+    entity.totalNumberOfOffchainAttestations = 0;
+    entity.totalNumberOfRevocations = 0;
+    entity.totalNumberOfOffchainRevocations = 0;
+    entity.save();
+  }
+}
+
 export function handleAttestationMade(event: AttestationMadeEvent): void {
   let entity = new Attestation(event.params.attestationId.toHexString());
   const attestation = SP.bind(event.address).getAttestation(
@@ -119,6 +166,7 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
   }
   entity.from = event.transaction.from;
   entity.transactionHash = event.transaction.hash;
+  entity.attestBlock = event.block.number;
   entity.dataLocation = dataLocationNumberToEnumString(
     attestation.dataLocation
   );
@@ -138,6 +186,7 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
   let _event = new Event(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
+  _event.block = event.block.number;
   _event.timestamp = event.block.timestamp;
   _event.transactionHash = event.transaction.hash;
   _event.type = "AttestationMade";
@@ -150,12 +199,14 @@ export function handleAttestationRevoked(event: AttestationRevokedEvent): void {
   entity.revoked = true;
   entity.revokeReason = event.params.reason;
   entity.revokeTimestamp = event.block.timestamp;
+  entity.revokeBlock = event.block.number;
   entity.revokeTransactionHash = event.transaction.hash;
   entity.save();
 
   let _event = new Event(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
+  _event.block = event.block.number;
   _event.timestamp = event.block.timestamp;
   _event.transactionHash = event.transaction.hash;
   _event.type = "AttestationRevoked";
@@ -169,11 +220,13 @@ export function handleOffchainAttestationMade(
   let entity = new OffchainAttestation(event.params.attestationId);
   entity.transactionHash = event.transaction.hash;
   entity.attestTimestamp = event.block.timestamp;
+  entity.attestBlock = event.block.number;
   entity.save();
 
   let _event = new Event(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
+  _event.block = event.block.number;
   _event.timestamp = event.block.timestamp;
   _event.transactionHash = event.transaction.hash;
   _event.type = "OffchainAttestationMade";
@@ -187,6 +240,7 @@ export function handleOffchainAttestationRevoked(
   let entity = OffchainAttestation.load(event.params.attestationId)!;
   entity.revoked = true;
   entity.revokeTimestamp = event.block.timestamp;
+  entity.revokeBlock = event.block.number;
   entity.revokeReason = event.params.reason;
   entity.revokeTransactionHash = event.transaction.hash;
   entity.save();
@@ -194,6 +248,7 @@ export function handleOffchainAttestationRevoked(
   let _event = new Event(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
+  _event.block = event.block.number;
   _event.timestamp = event.block.timestamp;
   _event.transactionHash = event.transaction.hash;
   _event.type = "OffchainAttestationRevoked";
@@ -204,6 +259,7 @@ export function handleOffchainAttestationRevoked(
 export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   let entity = new Schema(event.params.schemaId.toHexString());
   const schema = SP.bind(event.address).getSchema(event.params.schemaId);
+  entity.block = event.block.number;
   entity.transactionHash = event.transaction.hash;
   entity.registrant = event.transaction.from;
   entity.revocable = schema.revocable;
@@ -220,6 +276,7 @@ export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   let _event = new Event(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
+  _event.block = event.block.number;
   _event.timestamp = event.block.timestamp;
   _event.transactionHash = event.transaction.hash;
   _event.type = "SchemaRegistered";

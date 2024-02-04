@@ -1,3 +1,12 @@
+type Global @entity {
+  id: String!
+  totalNumberOfSchemas: Int!
+  totalNumberOfAttestations: Int!
+  totalNumberOfOffchainAttestations: Int!
+  totalNumberOfRevocations: Int!
+  totalNumberOfOffchainRevocations: Int!
+}
+
 enum DataLocation {
   ONCHAIN
   ARWEAVE
@@ -15,6 +24,7 @@ enum EventType {
 
 type Event @entity(immutable: true) {
   id: Bytes!
+  block: BigInt!
   timestamp: BigInt!
   transactionHash: Bytes!
   type: EventType!
@@ -25,6 +35,7 @@ type Event @entity(immutable: true) {
 
 type Schema @entity(immutable: true) {
   id: String!
+  block: BigInt!
   transactionHash: Bytes!
   registrant: Bytes!
   revocable: Boolean!
@@ -46,10 +57,12 @@ type Attestation @entity {
   linkedAttestation: Attestation
   attester: Bytes!
   attestTimestamp: BigInt!
+  attestBlock: BigInt!
   data: Bytes!
   validUntil: BigInt!
   revoked: Boolean
   revokeTimestamp: BigInt
+  revokeBlock: BigInt
   revokeReason: String
   revokeTransactionHash: Bytes
 }
@@ -64,8 +77,10 @@ type OffchainAttestation @entity {
   id: String!
   transactionHash: Bytes!
   attestTimestamp: BigInt!
+  attestBlock: BigInt!
   revoked: Boolean
   revokeTimestamp: BigInt
+  revokeBlock: BigInt
   revokeReason: String
   revokeTransactionHash: Bytes
 }
