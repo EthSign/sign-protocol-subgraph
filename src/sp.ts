@@ -192,6 +192,8 @@ export function handleAttestationMade(event: AttestationMadeEvent): void {
   _event.type = "AttestationMade";
   _event.attestation = event.params.attestationId.toHexString();
   _event.save();
+
+  incrementGlobalAttestationCount();
 }
 
 export function handleAttestationRevoked(event: AttestationRevokedEvent): void {
@@ -212,6 +214,8 @@ export function handleAttestationRevoked(event: AttestationRevokedEvent): void {
   _event.type = "AttestationRevoked";
   _event.attestation = event.params.attestationId.toHexString();
   _event.save();
+
+  incrementGlobalRevocationCount();
 }
 
 export function handleOffchainAttestationMade(
@@ -232,6 +236,8 @@ export function handleOffchainAttestationMade(
   _event.type = "OffchainAttestationMade";
   _event.offchainAttestation = event.params.attestationId;
   _event.save();
+
+  incrementGlobalOffchainAttestationCount();
 }
 
 export function handleOffchainAttestationRevoked(
@@ -254,6 +260,8 @@ export function handleOffchainAttestationRevoked(
   _event.type = "OffchainAttestationRevoked";
   _event.offchainAttestation = event.params.attestationId;
   _event.save();
+
+  incrementGlobalOffchainRevocationCount();
 }
 
 export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
@@ -282,4 +290,6 @@ export function handleSchemaRegistered(event: SchemaRegisteredEvent): void {
   _event.type = "SchemaRegistered";
   _event.schema = event.params.schemaId.toHexString();
   _event.save();
+
+  incrementGlobalSchemaCount();
 }
