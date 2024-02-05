@@ -4,10 +4,12 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
+    "prep:matic": "mustache config/matic.json subgraph.template.yaml > subgraph.yaml",
     "prep:mumbai": "mustache config/mumbai.json subgraph.template.yaml > subgraph.yaml",
     "prep:zetatest": "mustache config/zetatest.json subgraph.template.yaml > subgraph.yaml",
     "prep:zetachain": "mustache config/zetachain.json subgraph.template.yaml > subgraph.yaml",
     "prep:opbnbtest": "mustache config/opbnbtest.json subgraph.template.yaml > subgraph.yaml",
+    "prep:opbnb": "mustache config/opbnb.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
