@@ -10,6 +10,7 @@
     "prep:zetachain": "mustache config/zetachain.json subgraph.template.yaml > subgraph.yaml",
     "prep:opbnbtest": "mustache config/opbnbtest.json subgraph.template.yaml > subgraph.yaml",
     "prep:opbnb": "mustache config/opbnb.json subgraph.template.yaml > subgraph.yaml",
+    "prep:ethereum": "mustache config/ethereum.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
