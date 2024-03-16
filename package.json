@@ -11,6 +11,9 @@
     "prep:opbnbtest": "mustache config/opbnbtest.json subgraph.template.yaml > subgraph.yaml",
     "prep:opbnb": "mustache config/opbnb.json subgraph.template.yaml > subgraph.yaml",
     "prep:ethereum": "mustache config/ethereum.json subgraph.template.yaml > subgraph.yaml",
+    "prep:scrollsepolia": "mustache config/scrollsepolia.json subgraph.template.yaml > subgraph.yaml",
+    "prep:scroll": "mustache config/scroll.json subgraph.template.yaml > subgraph.yaml",
+    "prep:base": "mustache config/base.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
