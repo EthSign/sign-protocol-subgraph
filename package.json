@@ -14,6 +14,7 @@
     "prep:scrollsepolia": "mustache config/scrollsepolia.json subgraph.template.yaml > subgraph.yaml",
     "prep:scroll": "mustache config/scroll.json subgraph.template.yaml > subgraph.yaml",
     "prep:base": "mustache config/base.json subgraph.template.yaml > subgraph.yaml",
+    "prep:basesepolia": "mustache config/basesepolia.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
