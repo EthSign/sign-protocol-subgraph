@@ -17,6 +17,7 @@
     "prep:basesepolia": "mustache config/basesepolia.json subgraph.template.yaml > subgraph.yaml",
     "prep:plumesepolia": "mustache config/plumesepolia.json subgraph.template.yaml > subgraph.yaml",
     "prep:beratest": "mustache config/beratest.json subgraph.template.yaml > subgraph.yaml",
+    "prep:sepolia": "mustache config/sepolia.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
