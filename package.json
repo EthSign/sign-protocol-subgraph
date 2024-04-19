@@ -20,6 +20,10 @@
     "prep:sepolia": "mustache config/sepolia.json subgraph.template.yaml > subgraph.yaml",
     "prep:opsepolia": "mustache config/opsepolia.json subgraph.template.yaml > subgraph.yaml",
     "prep:op": "mustache config/op.json subgraph.template.yaml > subgraph.yaml",
+    "prep:chiado": "mustache config/chiado.json subgraph.template.yaml > subgraph.yaml",
+    "prep:arbitrumsepolia": "mustache config/arbitrumsepolia.json subgraph.template.yaml > subgraph.yaml",
+    "prep:degen": "mustache config/degen.json subgraph.template.yaml > subgraph.yaml",
+    "prep:gnosis": "mustache config/gnosis.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
