@@ -22,8 +22,12 @@
     "prep:op": "mustache config/op.json subgraph.template.yaml > subgraph.yaml",
     "prep:chiado": "mustache config/chiado.json subgraph.template.yaml > subgraph.yaml",
     "prep:arbitrumsepolia": "mustache config/arbitrumsepolia.json subgraph.template.yaml > subgraph.yaml",
+    "prep:arbitrumone": "mustache config/arbitrumone.json subgraph.template.yaml > subgraph.yaml",
     "prep:degen": "mustache config/degen.json subgraph.template.yaml > subgraph.yaml",
     "prep:gnosis": "mustache config/gnosis.json subgraph.template.yaml > subgraph.yaml",
+    "prep:x1": "mustache config/x1.json subgraph.template.yaml > subgraph.yaml",
+    "prep:cyber": "mustache config/cyber.json subgraph.template.yaml > subgraph.yaml",
+    "prep:bnb": "mustache config/bnb.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
