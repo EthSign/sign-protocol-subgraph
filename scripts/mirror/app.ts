@@ -15,6 +15,7 @@ type Entity =
   | "offchain_attestation";
 
 const environment: Environment = minist(process.argv).environment;
+const name: Environment = minist(process.argv).name;
 const environmentSubgraphList = subgraphList.filter(
   (x) => x.chain.environment === environment
 );
@@ -26,7 +27,7 @@ const entities: Entity[] = [
   "event",
   "offchain_attestation",
 ];
-const OUTPUT_PATH = `./mirror-${environment}.yaml`;
+const OUTPUT_PATH = `./sp-${name}-${environment}.yaml`;
 const DB_SECRET_NAME = process.env.MIRROR_DB_SECRET_NAME;
 const DB_SCHEMA = process.env.MIRROR_DB_SCHEMA;
 
@@ -93,8 +94,9 @@ environmentSubgraphList.forEach((subgraph) => {
   });
 });
 
-const result = `name: sp-mirror-${environment}
+const result = `name: sp-${name}-${environment}
 apiVersion: 3
+resource_size: l
 sources:
 ${sources.join("\n")}
 

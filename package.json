@@ -29,10 +29,12 @@
     "prep:cyber": "mustache config/cyber.json subgraph.template.yaml > subgraph.yaml",
     "prep:bnb": "mustache config/bnb.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test",
-    "mirror:build:testnet": "tsc ./scripts/mirror/app.ts --outDir ./dist/mirror && node ./dist/mirror/app.js --environment=testnet",
-    "mirror:build:mainnet": "tsc ./scripts/mirror/app.ts --outDir ./dist/mirror && node ./dist/mirror/app.js --environment=mainnet",
-    "mirror:apply:testnet": "goldsky pipeline apply ./dist/mirror/mirror-testnet.yaml",
-    "mirror:apply:mainnet": "goldsky pipeline apply ./dist/mirror/mirror-mainnet.yaml"
+    "mirror:build:testnet:dev": "tsc ./scripts/mirror/app.ts --outDir ./dist/mirror && node ./dist/mirror/app.js --environment=testnet --name=mirror",
+    "mirror:build:testnet": "tsc ./scripts/mirror/app.ts --outDir ./dist/mirror && node ./dist/mirror/app.js --environment=testnet --name=prod",
+    "mirror:build:mainnet": "tsc ./scripts/mirror/app.ts --outDir ./dist/mirror && node ./dist/mirror/app.js --environment=mainnet --name=prod",
+    "mirror:apply:testnet:dev": "goldsky pipeline apply ./dist/mirror/sp-mirror-testnet.yaml",
+    "mirror:apply:testnet": "goldsky pipeline apply ./dist/mirror/sp-prod-testnet.yaml",
+    "mirror:apply:mainnet": "goldsky pipeline apply ./dist/mirror/sp-prod-mainnet.yaml"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.64.1",
