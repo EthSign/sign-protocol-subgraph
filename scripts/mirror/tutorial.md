@@ -46,35 +46,44 @@ MIRROR_DB_SCHEMA='<schemaName>'
 ```
 
 ## Build mirror pipeline config file
-
-- **for testnet**
+- **testnet for dev**
+  ```bash
+  pnpm mirror:build:testnet:dev
+  ```
+- **testnet for prod**
   ```bash
   pnpm mirror:build:testnet
   ```
-- **or for mainnet**
+- **mainnet for prod**
   ```bash
   pnpm mirror:build:mainnet
   ```
 
 ## Publish mirror pipeline config file
-
-- **for testnet**
+- **testnet for dev**
+  ```bash
+  pnpm mirror:apply:testnet:dev
+  ```
+- **testnet for prod**
   ```bash
   pnpm mirror:apply:testnet
   ```
-- **or for mainnet**
+- **mainnet for prod**
   ```bash
   pnpm mirror:apply:mainnet
   ```
 
 ## Start pipeline
-
-- **for testnet**
+- **testnet for dev**
   ```bash
   goldsky pipeline start sp-mirror-testnet
   ```
-- **or for mainnet**
+- **testnet for prod**
   ```bash
-  goldsky pipeline start sp-mirror-mainnet
+  goldsky pipeline start sp-prod-testnet
+  ```
+- **mainnet for prod**
+  ```bash
+  goldsky pipeline start sp-prod-mainnet
   ```
 
