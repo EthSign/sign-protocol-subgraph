@@ -28,11 +28,13 @@
     "prep:x1": "mustache config/x1.json subgraph.template.yaml > subgraph.yaml",
     "prep:cyber": "mustache config/cyber.json subgraph.template.yaml > subgraph.yaml",
     "prep:bnb": "mustache config/bnb.json subgraph.template.yaml > subgraph.yaml",
+    "prep:celoAlfajores": "mustache config-studio/celoAlfajores.json subgraph.template.yaml > subgraph.yaml",
+    "prep:celo": "mustache config/celo.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.64.1",
-    "@graphprotocol/graph-ts": "0.32.0",
+    "@graphprotocol/graph-cli": "0.80.0",
+    "@graphprotocol/graph-ts": "0.35.1",
     "mustache": "^4.2.0"
   },
   "devDependencies": {
