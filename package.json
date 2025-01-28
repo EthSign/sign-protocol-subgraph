@@ -31,6 +31,7 @@
     "prep:bnb": "mustache config/bnb.json subgraph.template.yaml > subgraph.yaml",
     "prep:celoAlfajores": "mustache config-studio/celoAlfajores.json subgraph.template.yaml > subgraph.yaml",
     "prep:celo": "mustache config/celo.json subgraph.template.yaml > subgraph.yaml",
+    "prep:abstract": "mustache config/abstract.json subgraph.template.yaml > subgraph.yaml",
     "test": "graph test",
     "mirror:build:testnet:dev": "tsc ./scripts/mirror/app.ts --outDir ./dist/mirror && node ./dist/mirror/app.js --environment=testnet --name=mirror",
     "mirror:build:testnet": "tsc ./scripts/mirror/app.ts --outDir ./dist/mirror && node ./dist/mirror/app.js --environment=testnet --name=prod",
